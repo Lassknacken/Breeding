@@ -100,8 +100,17 @@ a {
 }
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-input[type=date].form-control, input[type=time].form-control, input[type=datetime-local].form-control, input[type=month].form-control {
-	line-height: 21px;
+.form-control {
+	height: 26px;
+}
+input[type=date].form-control, 
+input[type=time].form-control, 
+input[type=datetime-local].form-control, 
+input[type=month].form-control {
+	line-height: 12px;
+}
+label {
+	font-size: 13px;
 }
 /* Images
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -148,6 +157,7 @@ ul li {
 table tr th,
 table tr td {
 	width: 33.33%;
+	font-size: 13px;
 }
 table tr th:first-child,
 table tr td:first-child {
