@@ -1,16 +1,13 @@
 ngServices['objectSvc']=function() {
     var _self=this;
 
-
+    //===========Dogs
     _self.createDogs=function(data){
         if(!data && !data.dogs && !data.dogs.records){
             return undefined;
         }
 
-        var result=[];
-        for(var i=0; i<data.dogs.records.length;i++){
-            result.push(_self.createDog(data.dogs.records[i]));
-        }
+        var result = _self.createMany(_self.createDog,data,"dogs");
         
         return result;
     };
@@ -33,14 +30,38 @@ ngServices['objectSvc']=function() {
         return result;
     }
 
+    //===========Formvalues
+    _self.createFormvalues=function(data){
+        if(!data && !data.formvalues && !data.formvalues.records){
+            return undefined;
+        }
+
+        var result = _self.createMany(_self.createFormvalue,data,"formvalues");
+        
+        return result;
+    }
+
+    _self.createFormvalue=function(data){
+        if(!data){
+            return undefined;
+        }
+
+        var result={};
+
+        result.id=data[0];
+        result.name=data[1];
+        
+        return result;
+    }
+
 //======
-    _self.createMany=function(method,arr){
-        if(arr==undefined || arr.length===0){
+    _self.createMany=function(method, arr, prop){
+        if(arr[prop]==undefined || arr[prop].records.length===0){
             return [];
         }
         var result=[];
-        for(var i=0;i<arr.length;i++){
-            result.push(method(arr[i]));
+        for(var i=0;i<arr[prop].records.length;i++){
+            result.push(method(arr[prop].records[i]));
         }
         return result;
     }

@@ -1,6 +1,7 @@
 ngServices['httpSvc']=function($http,objectSvc) {
     
 
+    //dogs
     this.getDogs=function(){
         return this.get("/Api/api.php/dogs/",objectSvc.createDogs);
     };
@@ -11,6 +12,11 @@ ngServices['httpSvc']=function($http,objectSvc) {
 
         return this.get("Api/api.php/dogs/"+id);
     };
+
+    //formvalue
+    this.getFormvaules=function(){
+        return this.get("/Api/api.php/formvalues/",objectSvc.createFormvalues);
+    }
 
 
     //General Stuff

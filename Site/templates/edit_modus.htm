@@ -1,4 +1,4 @@
-<div class="container bg-color-white">
+<div class="container bg-color-white" ng-controller="dogCtrl as dog">
     
     <div class="row">
         <div class="col-xs-12 col-md-8">
@@ -20,13 +20,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">Formwert</label>
-                            <select class="form-control">
-                                <option>sehr gut</option>
-                                <option>gut</option>
-                                <option>befriedigend</option>
-                                <option>ausreichend</option>
-                                <option>mangelhaft</option>
-                                <option>ungenügend</option>
+                            <select class="form-control" ng-model="dog.formvalue" ng-options="value.name for value in dog.formvalues">
                             </select>
                         </div>
                         <div class="form-group">
