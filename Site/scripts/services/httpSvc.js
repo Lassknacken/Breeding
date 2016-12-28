@@ -1,8 +1,8 @@
-ngServices['httpSvc']=function($http,objectService) {
+ngServices['httpSvc']=function($http,objectSvc) {
     
 
     this.getDogs=function(){
-        this.get("Api/api.php/dogs/",objectService.createDogs);
+        return this.get("/Api/api.php/dogs/",objectSvc.createDogs);
     };
     this.getDog=function(id){
         if(!id){

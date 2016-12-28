@@ -1,12 +1,10 @@
-var ngControllers=[];
-var ngServices=[];
 (function(){
 'use strict'
 
 var myApp=angular.module('myApp',['ngRoute']);
 
 
-for(key in ngControllers){
+for(var key in ngControllers){
     myApp.controller(key, ngControllers[key]);
 }
 
