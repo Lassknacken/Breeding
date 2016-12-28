@@ -74,6 +74,7 @@ h3 {
 h4 {
 	margin-top: 0;
 	color: #141413;
+	margin-bottom: 15px;
 }
 h5 {
 	font-weight: 700;
@@ -99,6 +100,9 @@ a {
 }
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+input[type=date].form-control, input[type=time].form-control, input[type=datetime-local].form-control, input[type=month].form-control {
+	line-height: 21px;
+}
 /* Images
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 nav .fa.fa-sign-in,

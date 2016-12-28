@@ -22,6 +22,8 @@ myApp.config(function($routeProvider) {
         templateUrl : "/site/templates/dogs.htm"
     }).when("/wurst", {
         templateUrl : "/site/templates/wurst.htm"
+    }).when("/edit_modus", {
+        templateUrl : "/site/templates/edit_modus.htm"
     })
 });
 
