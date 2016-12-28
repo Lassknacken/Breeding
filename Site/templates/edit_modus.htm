@@ -11,14 +11,14 @@
                 <div class="col-xs-12">
                     <form>
                         <div class="form-group">
-                            <label for="exampleInputName">Name</label>
+                            <label for="exampleInputName">Name {{dog.dog.id}}</label>
                             <input type="text" class="form-control" id="exampleInputName" placeholder="Wauzi" ng-model="dog.dog.name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputName">Geschlecht</label>
                             <select class="form-control" ng-model="dog.dog.male">
-                                <option value="true">männlich</option>
-                                <option value="false">weiblich</option>
+                                <option value="1">männlich</option>
+                                <option value="0">weiblich</option>
                             </select>
                         </div>
                         <div class="form-group">

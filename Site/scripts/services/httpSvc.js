@@ -10,13 +10,13 @@ ngServices['httpSvc']=function($http,objectSvc) {
             return undefined;
         }
 
-        return this.get("Api/api.php/dogs/"+id);
+        return this.get("/Api/api.php/dogs/"+id);
     };
     this.postDog=function(dog){
         return this.post("/Api/api.php/dogs/",dog);
     }
     this.putDog=function(id,dog){
-
+        return this.put("/Api/api.php/dogs/"+id,dog);
     }
 
 
@@ -42,7 +42,17 @@ ngServices['httpSvc']=function($http,objectSvc) {
             if(!createMethod){
                 return response.data;
             }else{
+                return createMethod(response.data);
+            }
+        });
+    }
+
+    this.put=function(url,data,createMethod){
+        return $http.put(url,data).then(function(response){
+            if(!createMethod){
                 return response.data;
+            }else{
+                return createMethod(response.data);
             }
         });
     }
