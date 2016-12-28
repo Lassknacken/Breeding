@@ -7,6 +7,8 @@ myApp.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "/site/templates/home.htm"
+    }).when("/wurst", {
+        templateUrl : "/site/templates/wurst.htm"
     })
 });
 

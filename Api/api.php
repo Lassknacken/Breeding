@@ -1,4 +1,7 @@
 <?php
+/*
+https://github.com/mevdschee/php-crud-api
+*/
 //var_dump($_SERVER['REQUEST_METHOD'],$_SERVER['PATH_INFO']); die();
 
 interface DatabaseInterface {
@@ -1550,10 +1553,10 @@ class PHP_CRUD_API {
 
 $api = new PHP_CRUD_API(array(
 	'dbengine'=>'MySQL',
-	'hostname'=>'127.0.0.1',
+	'hostname'=>'192.168.178.23',
 	'username'=>'root',
 	'password'=>'ByZsql1988',
-	'database'=>'breeding',
+	'database'=>'Breeding',
 	'charset'=>'utf8'
 ));
 $api->executeCommand();

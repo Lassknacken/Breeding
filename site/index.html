@@ -1,16 +1,142 @@
-<html>
-    <head>
-        <link rel="stylesheet" href="/site/styles/bootstrap.min.css">
-        <title>
+<!DOCTYPE html>
+<html lang="de">
+	<head>
 
-        </title>
-    </head>
-    <body ng-app="myApp">
-        <div ng-view>
-            
-        </div>
-        <script type="text/javascript" src="/site/scripts/angular/angular.min.js"></script>
-        <script type="text/javascript" src="/site/scripts/angular/angular-route.min.js"></script>
-        <script type="text/javascript" src="/site/scripts/angular/app.js"></script>
-    </body>
+	<!-- Basic Page Needs
+	––––––––––––––––––––––––––––––––––––––––––––––––––-->
+	<meta charset="utf-8">
+	<title>Züchter Riesenschnauzer</title>
+	<meta name="description" content="">
+
+	<!-- Mobile Specific Metas
+	––––––––––––––––––––––––––––––––––––––––––––––––––-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- FONT
+	––––––––––––––––––––––––––––––––––––––––––––––––––-->
+	<link href="resources/font-awesome-4.3.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+	<!-- CSS
+	––––––––––––––––––––––––––––––––––––––––––––––––––-->
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="resources/bootstrap-3.3.5-dist/bootstrap-3.3.5-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="resources/bootstrap-3.3.5-dist/bootstrap-3.3.5-dist/css/bootstrap-theme.min.css">
+	<link href="css/style.css" rel="stylesheet" media="all">
+
+	<!-- Favicon
+	––––––––––––––––––––––––––––––––––––––––––––––––––-->
+	<!--link rel="icon" type="image/x-icon" href="images/favicon.ico"-->
+	
+	<!--[if lt IE 9]>
+		<script src="js/HTML5Shiv-printshiv.js" media="all"></script>
+	<![endif]-->
+
+	</head>
+
+	<body id="home" ng-app="myApp">
+
+		<!-- Primary Page Layout
+		––––––––––––––––––––––––––––––––––––––––––––––––––-->
+					
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Riesenschnauzer pfeffer-salz</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					
+				</div>
+				<div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#"><span class="fa fa-home" aria-hidden="true"></span> Home</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Riesenschnauzer pfeffer-salz<span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Rassebeschreibung</a></li>
+								<li><a href="#">Welpen</a></li>
+								<li aria-haspopup="true" class="dropdown-submenu ">
+									<a href="javascript:;" class="nav-link nav-toggle ">
+										Gesundheit
+										<span class="fa fa-caret-right"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li aria-haspopup="true" class="">
+											<a href="" class="nav-link "> Gesundheitsscheck</a>
+										</li>
+										<li aria-haspopup="true" class="">
+											<a href="" class="nav-link "> Gentest</a>
+										</li>
+										<li aria-haspopup="true" class="">
+											<a href="" class="nav-link "> Fehlercode</a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+				
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zucht <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Verpaarungen</a></li>
+								<li><a href="#">Zuchthunde</a></li>
+								<li><a href="#">Zuchtliste</a></li>
+								<li><a href="#">Zuchtwarte</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vermittlung <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Geplante Würfe</a></li>
+							</ul>
+						</li>
+						<li><a href="#about">Über uns</a></li>
+						<li><a href="#contact">Kontakt</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="./">Logout Benutzerkonto <span class="fa fa-sign-out" aria-hidden="true"></span></a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</nav>
+					
+		<main role="main" ng-view>
+		</main>	
+				
+		<footer role="contentinfo">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<ul class="row">
+							<li class="col-xs-3">
+								<span class="fa fa-copyright"></span> 2016 Die Riesenschnauzer Züchter
+							</li>
+							<li class="col-xs-3">Impressum</li>
+							<li class="col-xs-3"></li>
+							<li class="col-xs-3"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- End Document
+		––––––––––––––––––––––––––––––––––––––––––––––––––-->
+
+		<!-- Javascript
+		––––––––––––––––––––––––––––––––––––––––––––––––––-->
+		<!--<script type="text/javascript" src="resources/jquery-2.2.0/js/jquery-2.2.0.js"></script>-->
+		<!--<script type="text/javascript" src="resources/bootstrap-3.3.5-dist/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>-->
+		<script type="text/javascript" src="scripts/angular/angular.min.js"></script>
+		<script type="text/javascript" src="scripts/angular/angular-route.min.js"></script>
+		<script type="text/javascript" src="scripts/angular/app.js"> </script>
+		<!--script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.js"></script>
+		<script type="text/javascript" src="js/app.js"></script-->
+
+	</body>
 </html>
