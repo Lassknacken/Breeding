@@ -22,7 +22,7 @@ myApp.config(function($routeProvider) {
         templateUrl : "/site/templates/wurst.htm"
     }).when("/edit_modus", {
         templateUrl : "/site/templates/edit_modus.htm"
-    }).when("/list", {
+    }).when("/dogs", {
         templateUrl : "/site/templates/list.htm"
     })
 });

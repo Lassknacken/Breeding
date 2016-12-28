@@ -14,17 +14,21 @@ ngServices['httpSvc']=function($http,objectSvc) {
     };
     this.postDog=function(dog){
         return this.post("/Api/api.php/dogs/",dog);
-    }
+    };
     this.putDog=function(id,dog){
         return this.put("/Api/api.php/dogs/"+id,dog);
-    }
-
+    };
 
     //formvalue
     this.getFormvaules=function(){
         return this.get("/Api/api.php/formvalues/",objectSvc.createFormvalues);
-    }
+    };
 
+
+    //=====Configs
+    this.getConfig=function(name){
+        return this.get("resources/configs/"+name+".json");
+    };
 
     //General Stuff
     this.get=function(url,createMethod){

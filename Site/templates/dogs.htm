@@ -1,4 +1,4 @@
-<div class="container bg-color-white" ng-controller="dogsCtrl as dogs" >
+<div class="container bg-color-white" ng-controller="listCtrl as list" >
     
     <div class="row">
         <div class="col-xs-12 col-md-8">
@@ -8,8 +8,10 @@
     <div class="row">
         <div class="col-xs-12">
             Liste aus Datenbank:
+
+            {{list.route}}
             <ul>
-                <li ng-repeat="dog in dogs.dogs">{{dog.name}}</li>
+                <li ng-repeat="item in list.items">{{item.name}}</li>
             </ul>
         </div>
     </div>

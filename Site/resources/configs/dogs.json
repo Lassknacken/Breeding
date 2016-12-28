@@ -1,0 +1,22 @@
+{
+    "table":{
+        "source":"getDogs",
+        "rows":[
+            {
+                "name":"name",
+                "type":"default",
+                "property":"name"
+            },
+            {
+                "name":"Geburtsdatum",
+                "type":"date",
+                "property":"birth"
+            },
+            {
+                "name":"Chipnummer",
+                "type":"default",
+                "property":"chipnumber"
+            }
+        ]
+    }
+}

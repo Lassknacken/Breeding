@@ -1,4 +1,4 @@
-<div class="container bg-color-white">
+<div class="container bg-color-white" ng-controller="listCtrl as list">
     
     <div class="row">
         <div class="col-xs-12 col-md-8">
@@ -35,16 +35,12 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Name des Hundes</th>
-                                    <th>Geburtsdatum</th>
-                                    <th>Chipnummer</th>
+                                    <th ng-repeat="row in list.config.table.rows">{{row.name}}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                <tr ng-repeat="item in list.items">
+                                    <td ng-repeat="row in list.config.table.rows">{{item[row.property]}}</td>
                                 </tr>
                             </tbody>
                         </table>
