@@ -1,8 +1,16 @@
-<div class="container bg-color-white">
+<div class="container bg-color-white" ng-controller="dogsCtrl as dogs" >
     
     <div class="row">
         <div class="col-xs-12 col-md-8">
             dogs
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            Liste aus Datenbank:
+            <ul>
+                <li ng-repeat="dog in dogs.dogs">{{dog.name}}</li>
+            </ul>
         </div>
     </div>
 </div>
