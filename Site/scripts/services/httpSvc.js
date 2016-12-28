@@ -12,6 +12,13 @@ ngServices['httpSvc']=function($http,objectSvc) {
 
         return this.get("Api/api.php/dogs/"+id);
     };
+    this.postDog=function(dog){
+        return this.post("/Api/api.php/dogs/",dog);
+    }
+    this.putDog=function(id,dog){
+
+    }
+
 
     //formvalue
     this.getFormvaules=function(){

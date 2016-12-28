@@ -12,22 +12,31 @@
                     <form>
                         <div class="form-group">
                             <label for="exampleInputName">Name</label>
-                            <input type="text" class="form-control" id="exampleInputName">
+                            <input type="text" class="form-control" id="exampleInputName" placeholder="Wauzi" ng-model="dog.dog.name">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputName">Geschlecht</label>
+                            <select class="form-control" ng-model="dog.dog.male">
+                                <option value="true">männlich</option>
+                                <option value="false">weiblich</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputBirthday">Geburtsdatum</label>
-                            <input type="date" class="form-control" id="exampleInputBirthday">
+                            <input type="date" class="form-control" id="exampleInputBirthday" ng-model="dog.dog.birth">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputFile">Formwert</label>
-                            <select class="form-control" ng-model="dog.formvalue" ng-options="value.name for value in dog.formvalues">
+                            <select class="form-control" ng-model="dog.dog.formvalue_id" ng-options="value.id as value.name for value in dog.formvalues">
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputChipnumber">Chipnummer</label>
-                            <input type="text" class="form-control" id="exampleInputChipnumber">
+                            <input type="text" class="form-control" id="exampleInputChipnumber" ng-model="dog.dog.chipnumber">
                         </div>
-                        <button type="submit" class="btn btn-default right"><span class="fa fa-save"></span> speichern</button>
+                        <button type="submit" class="btn btn-default right" ng-click="dog.saveDog()">
+                            <span class="fa fa-save"></span> speichern
+                        </button>
                     </form>
                 </div>
             </div>

@@ -7,6 +7,18 @@ ngControllers["dogCtrl"]=function(httpSvc){
         });
     };
 
+    _self.saveDog=function(){
+        if(_self.dog.id==undefined || _self.dog.id===0 ){
+            httpSvc.postDog(_self.dog).then(function(result){
+                _self.dog=result;
+            });
+        }else{
+            //PUT
+        }
+
+        
+    }
+
     _self.ctor();
     
 };
