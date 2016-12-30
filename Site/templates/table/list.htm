@@ -35,12 +35,14 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th ng-repeat="row in list.config.table.rows">{{row.name}}</th>
+                                    <th ng-repeat="col in list.config.table.columns">{{col.name}}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr ng-repeat="item in list.items">
-                                    <td ng-repeat="row in list.config.table.rows">{{item[row.property]}}</td>
+                                    <td ng-repeat="col in list.config.table.columns">
+                                        <cell val="item" template="col"></cell>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
