@@ -116,7 +116,44 @@
 						<li><a href="#contact">Kontakt</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="./">Logout Benutzerkonto <span class="fa fa-sign-out" aria-hidden="true"></span></a></li>
+						<li><a href="./">
+							<span class="btn btn-circle fa fa-sign-out" aria-hidden="true"></span> Logout Benutzerkonto</a>
+						</li>
+						<li>
+							<a data-placement="bottom" data-toggle="popover" data-title="Login" data-container="body" type="button" data-html="true" href="#" id="login">
+								<span class="btn btn-circle fa fa-sign-in" aria-hidden="true"></span> Login Benutzerkonto 
+							</a>
+							<div id="popover-content" class="hide">
+								<form class="form-inline" role="form">
+									<div class="form-group">
+										<div class="input-group">
+											<input type="text" class="form-control" placeholder="Username" aria-describedby="username">
+											<span class="input-group-addon" id="username">
+												<i class="fa fa-user"></i>
+											</span>
+										</div>
+									</div>	
+
+									<div class="form-group half-top">
+										<div class="input-group">
+											<input type="password" class="form-control" placeholder="Password" aria-describedby="password">
+											<span class="input-group-addon" id="password">
+												<i class="fa fa-key"></i>
+											</span>
+										</div>
+									</div>
+
+									<a class="font-size-small color-gray">Passwort vergessen</a>
+
+									<br/>
+
+									<div class="form-group half-top">
+										<button type="submit" class="btn btn-default btn-sm">Registrieren</button>
+										<button type="submit" class="btn btn-primary btn-sm">Anmelden</button>
+									</div>
+								</form>
+							</div>
+						</li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -165,5 +202,14 @@
 		
 		<script type="text/javascript" src="scripts/angular/app.js"> </script>
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>-->
+		
+		<script>
+			$("[data-toggle=popover]").popover({
+				html: true, 
+				content: function() {
+					return $('#popover-content').html();
+					}
+			});
+		</script>
 	</body>
 </html>

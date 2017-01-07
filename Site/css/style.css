@@ -83,6 +83,12 @@ h6 {}
 p {
 	line-height: 22px;
 }
+.font-size-small {
+	font-size: 11px;
+}
+.color-gray {
+	color: #ccc;
+}
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
@@ -93,16 +99,38 @@ a {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .btn.btn-default {
     background: none;
-	background-color: #333332;
+	background-color: #eeeeef;
+	border-radius: 0;
+	text-shadow: none;
+	color: #595959;
+}
+.btn-primary {
+	background: none;
+	background-color: #245878;
 	border-radius: 0;
 	text-shadow: none;
 	color: #fff;
 }
+.btn.btn-circle {    
+	height: 27px;
+    width: 27px;
+	border-radius: 25px!important;
+    overflow: hidden;
+	background: #eeeeef;
+	font-size: 13px;
+    line-height: 1.5;
+	padding: 0 6px 2px;
+}
+
 /* Forms
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .form-control {
 	height: 26px;
+    border: 1px solid #ddd;
+    padding: 6px 8px;
+    font-size: 13px;
 }
+
 input[type=date].form-control, 
 input[type=time].form-control, 
 input[type=datetime-local].form-control, 
@@ -112,11 +140,23 @@ input[type=month].form-control {
 label {
 	font-size: 13px;
 }
+
+.input-group .input-group-addon {
+	width: 40px!important;
+	height: 26px;
+    border-color: #ddd;
+	padding: 5px 10px;
+    font-size: 14px;
+    line-height: 14px;
+}
 /* Images
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-nav .fa.fa-sign-in,
 nav .fa.fa-home {
 	font-size: 18px;
+}
+nav .fa.fa-sign-in,
+nav .fa.fa-sign-out {
+	font-size: 16px;
 }
 .banner,
 .banner-1,
@@ -202,6 +242,93 @@ table tr td:last-child {
 	background-image: none;
 	background-color: #f5f5f5;
 }
+.profile-image {
+    background: #f2f2f2;
+    border-radius: 2px;
+	border-color: #f2f2f2;
+    height: 260px;
+    margin-bottom: 56px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 260px;
+}
+.profile-image:hover {
+    overflow: visible;
+}
+.upload-hover {
+    background: #000;
+    background: rgba(0,0,0,0.65);
+    border-radius: 2px;
+    color: #f2f2f2;
+    font-weight: bold;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: -231px;
+    width: 100%;
+    transition: opacity 0.1s ease-in-out;
+    -o-transition: opacity 0.1s ease-in-out;
+    -moz-transition: opacity 0.1s ease-in-out;
+    -webkit-transition: opacity 0.1s ease-in-out;
+}
+.upload-hover form {
+    height: 230px;
+    width: 230px;
+}
+.upload-hover .file-hint {
+    display: block;
+    margin-top: 125px;
+}
+.profile-image .file-size {
+    font-weight: normal;
+}
+.profile-image .file-new, .upload-hover .file-size {
+    bottom: 7px;
+    font-size: 11px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
+}
+.loading-overlay {
+    display: none;
+    background: rgba(245,245,245,0.9);
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+.loading-overlay .progress-bar {
+    margin-top: 110px;
+    display: inline-block;
+    position: relative;
+    background-color: rgba(0,101,103,0.15);
+}
+.loading-overlay .progress-bar, .loading-overlay .progress {
+    width: 170px;
+    height: 6px;
+    border: none;
+    border-radius: 2px;
+    background-color: #006567;
+}
+.loading-overlay .progress {
+    width: 1%;
+    display: block;
+}
+.loading-overlay .progress-bar, .loading-overlay .progress {
+    width: 170px;
+    height: 6px;
+    border: none;
+    border-radius: 2px;
+    background-color: #006567;
+}
+
+.popover-content .form-inline,
+.popover-content .inline-group {
+	width: 100%;
+} 
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 hr {}
@@ -213,6 +340,9 @@ hr {}
 }
 .add-top {
 	margin-top: 20px;
+}
+.half-top {
+	margin-top: 10px;
 }
 .no-margin {
 	margin: 0;
