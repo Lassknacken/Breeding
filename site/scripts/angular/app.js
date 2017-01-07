@@ -8,8 +8,12 @@ for(var key in ngControllers){
     myApp.controller(key, ngControllers[key]);
 }
 
-for(key in ngServices){
+for(var key in ngServices){
     myApp.service(key, ngServices[key]);
+}
+
+for(var key in ngDirectives){
+    myApp.directive(key, ngDirectives[key]);
 }
 
 myApp.config(function($routeProvider) {
@@ -22,9 +26,11 @@ myApp.config(function($routeProvider) {
         templateUrl : "/site/templates/wurst.htm"
     }).when("/edit_modus", {
         templateUrl : "/site/templates/edit_modus.htm"
-    }).when("/list", {
-        templateUrl : "/site/templates/list.htm"
-    })
+    }).when("/dogs", {
+        templateUrl : "/site/templates/table/list.htm"
+    }).when("/dogs/:id", {
+        templateUrl : "/site/templates/detail/detail.htm"
+    });
 });
 
 })(window.angular)

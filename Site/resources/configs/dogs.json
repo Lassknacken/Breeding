@@ -1,0 +1,28 @@
+{
+    "table":{
+        "source":"getDogs",
+        "columns":[
+            {
+                "name":"name",
+                "type":"default",
+                "property":"name"
+            },
+            {
+                "name":"Geburtsdatum",
+                "type":"date",
+                "property":"birth"
+            },
+            {
+                "name":"Chipnummer",
+                "type":"default",
+                "property":"chipnumber"
+            },
+            {
+                "name":"Details",
+                "type":"redirect",
+                "target":"#!/dogs/$",
+                "property":"id"
+            }
+        ]
+    }
+}

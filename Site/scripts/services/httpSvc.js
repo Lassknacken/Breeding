@@ -1,7 +1,7 @@
-ngServices['httpSvc']=function($http,objectSvc) {
+ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
     
 
-    //dogs
+    //Dogs
     this.getDogs=function(){
         return this.get("/Api/api.php/dogs/",objectSvc.createDogs);
     };
@@ -10,14 +10,34 @@ ngServices['httpSvc']=function($http,objectSvc) {
             return undefined;
         }
 
-        return this.get("Api/api.php/dogs/"+id);
+        return this.get("/Api/api.php/dogs/"+id);
+    };
+    this.postDog=function(dog){
+        return this.post("/Api/api.php/dogs/",dog);
+    };
+    this.putDog=function(id,dog){
+        return this.put("/Api/api.php/dogs/"+id,dog);
     };
 
-    //formvalue
+    //Formvalue
     this.getFormvaules=function(){
         return this.get("/Api/api.php/formvalues/",objectSvc.createFormvalues);
+    };
+
+    //Exam
+    this.getExams=function(){
+        return this.get("/Api/api.php/exams/",objectSvc.createExams);
+    };
+
+    this.getExam=function(id){
+        return this.get("/Api/api.php/exams/?id="+id,objectSvc.createExams);
     }
 
+
+    //=====Configs
+    this.getConfig=function(name){
+        return this.get("resources/configs/"+name+".json");
+    };
 
     //General Stuff
     this.get=function(url,createMethod){
@@ -27,15 +47,35 @@ ngServices['httpSvc']=function($http,objectSvc) {
             }else{
                 return createMethod(response.data);
             }
+        },function(error){
+            if(error && error.status){
+
+                switch(error.status){
+                    case 401:{
+                        $rootScope.$broadcast('unauthorized');
+                        break;
+                    }
+                }                
+            }
         });
     }
     
     this.post=function(url,data,createMethod){
-        return $http.post(url,data).then(function(response){
+        return $http.post(url,data).then(function(response,error){
             if(!createMethod){
                 return response.data;
             }else{
+                return createMethod(response.data);
+            }
+        });
+    }
+
+    this.put=function(url,data,createMethod){
+        return $http.put(url,data).then(function(response,error){
+            if(!createMethod){
                 return response.data;
+            }else{
+                return createMethod(response.data);
             }
         });
     }

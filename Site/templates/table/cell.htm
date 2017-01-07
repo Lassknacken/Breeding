@@ -1,0 +1,79 @@
+<div>
+    <div ng-if="template.type==='date'">
+        <span>{{val[template.property].toLocaleDateString()}}</span>
+    </div>
+    <div ng-if="template.type==='default'">
+        <span>{{val[template.property].toString()}} {{template.suffix}}</span>
+    </div>
+    <div ng-if="template.type==='defaultlist'">
+        <ul>
+            <li ng-repeat="value in val[template.property]">
+                {{value.toString()}} {{template.suffix}}
+            </li>
+        </ul>
+    </div>
+	<div ng-if="template.type==='object'">
+		<span>{{val[template.property][template.value].toString()}} {{template.suffix}}</span>
+	</div>
+	<div ng-if="template.type==='objectdate'">
+		<span>{{val[template.property][template.value].toLocaleDateString()}} {{template.suffix}}</span>
+	</div>
+	<div ng-if="template.type==='objectlist'">
+		<ul>
+			<li ng-repeat="value in val[template.property]">
+				{{value[template.value].toString()}} {{template.suffix}}
+			</li>
+		</ul>
+	</div>
+	<div ng-if="template.type==='objectlistdate'">
+		<ul>
+			<li ng-repeat="value in val[template.property]">
+				{{value[template.value].toLocaleDateString()}} {{template.suffix}}
+			</li>
+		</ul>
+	</div>
+    <div ng-if="template.type==='redirect'">
+        <a class="btn btn-sm btn-default" ng-class="template.design.style" ng-href="{{template.target.split('$').join(val[template.property])}}" data-toggle="tooltip" title="{{template.tooltip}}">
+            {{template.title}} {{template.suffix}}
+        </a>
+    </div>
+    <div ng-if="template.type==='type'" uib-tooltip="{{template.tooltip}}" tooltip-placement="top" tooltip-class="amistooltip">
+        <a ng-class="template.design.style">
+
+        </a>
+    </div>
+	<div ng-if="template.type==='typeobject'" uib-tooltip="{{template.design[val[template.property][template.value]].tooltip}}" tooltip-placement="top" tooltip-class="amistooltip">
+		<a ng-class="template.design[val[template.property][template.value]].icon">
+
+		</a>
+	</div>
+	<div ng-if="template.type==='iconprogress'" uib-tooltip="{{template.tooltip}}" tooltip-placement="top" tooltip-class="amistooltip">
+		<a ng-class="template.design.style">
+
+		</a>
+	</div>
+	<div ng-if="template.type==='iconprogressobject'" uib-tooltip="{{template.design[val[template.property][template.value]].tooltip}}" tooltip-placement="top" tooltip-class="amistooltip">
+		<a ng-class="template.design[val[template.property][template.value]].icon">
+
+		</a>
+	</div>
+    <div ng-if="template.type==='circle'">
+        <span>{{val[template.propertyValue]}}/{{val[template.propertyMax]}}</span>
+    </div>
+    <div ng-if="template.type==='knob'">
+        <knob class="knob" knob-data="val[template.property]" knob-readOnly="true" knob-options="template.options"></knob>
+    </div>
+    <div ng-if="template.type==='tableaction'">
+        <tableaction val="val" template="template"></tableaction>
+    </div>
+    <div ng-if="template.type==='progress'">
+        <progressbar val="val[template.property]"></progressbar>
+    </div>
+    <div ng-if="template.type==='checkbox'">
+        <input type="checkbox" ng-checked="val[template.property]" />
+    </div>
+    <div ng-if="template.type==='modal'"></div>
+    <div ng-if="template.type==='count'">
+        <span>{{val[template.property].length.toString()}} {{template.suffix}}</span>
+    </div>
+</div>
