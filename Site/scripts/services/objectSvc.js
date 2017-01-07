@@ -26,6 +26,8 @@ ngServices['objectSvc']=function() {
         result.male=data[3];
         result.chipnumber=data[4];
         result.formvalue_id=data[5];
+        result.booknumber=data[6];
+        result.comment=data[7];
 
         return result;
     }
@@ -39,9 +41,32 @@ ngServices['objectSvc']=function() {
         var result = _self.createMany(_self.createFormvalue,data,"formvalues");
         
         return result;
-    }
+    };
 
     _self.createFormvalue=function(data){
+        if(!data){
+            return undefined;
+        }
+
+        var result={};
+
+        result.id=data[0];
+        result.name=data[1];
+        
+        return result;
+    };
+
+    _self.createExams=function(data){
+        if(!data && !data.exams && !data.exams.records){
+            return undefined;
+        }
+
+        var result = _self.createMany(_self.createExam,data,"exams");
+        
+        return result;
+    };
+
+    _self.createExam=function(data){
         if(!data){
             return undefined;
         }

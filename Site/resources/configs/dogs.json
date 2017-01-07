@@ -16,6 +16,12 @@
                 "name":"Chipnummer",
                 "type":"default",
                 "property":"chipnumber"
+            },
+            {
+                "name":"Details",
+                "type":"redirect",
+                "target":"#!/dogs/$",
+                "property":"id"
             }
         ]
     }

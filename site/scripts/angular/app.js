@@ -28,7 +28,9 @@ myApp.config(function($routeProvider) {
         templateUrl : "/site/templates/edit_modus.htm"
     }).when("/dogs", {
         templateUrl : "/site/templates/table/list.htm"
-    })
+    }).when("/dogs/:id", {
+        templateUrl : "/site/templates/detail/detail.htm"
+    });
 });
 
 })(window.angular)

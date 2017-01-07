@@ -1,4 +1,4 @@
-ngControllers["listCtrl"]=function($location,httpSvc){
+ngControllers["listCtrl"]=function($location,$rootScope, $scope, httpSvc){
     var _self=this;
 
 
@@ -20,6 +20,13 @@ ngControllers["listCtrl"]=function($location,httpSvc){
         });
 
     };
+
+
+    $scope.$on('unauthorized', function(event, args) {
+
+        console.log("unauthorized");
+    // do what you want to do
+    });
 
 
     _self.ctor();

@@ -1,7 +1,7 @@
-ngServices['httpSvc']=function($http,objectSvc) {
+ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
     
 
-    //dogs
+    //Dogs
     this.getDogs=function(){
         return this.get("/Api/api.php/dogs/",objectSvc.createDogs);
     };
@@ -19,10 +19,19 @@ ngServices['httpSvc']=function($http,objectSvc) {
         return this.put("/Api/api.php/dogs/"+id,dog);
     };
 
-    //formvalue
+    //Formvalue
     this.getFormvaules=function(){
         return this.get("/Api/api.php/formvalues/",objectSvc.createFormvalues);
     };
+
+    //Exam
+    this.getExams=function(){
+        return this.get("/Api/api.php/exams/",objectSvc.createExams);
+    };
+
+    this.getExam=function(id){
+        return this.get("/Api/api.php/exams/?id="+id,objectSvc.createExams);
+    }
 
 
     //=====Configs
@@ -38,11 +47,21 @@ ngServices['httpSvc']=function($http,objectSvc) {
             }else{
                 return createMethod(response.data);
             }
+        },function(error){
+            if(error && error.status){
+
+                switch(error.status){
+                    case 401:{
+                        $rootScope.$broadcast('unauthorized');
+                        break;
+                    }
+                }                
+            }
         });
     }
     
     this.post=function(url,data,createMethod){
-        return $http.post(url,data).then(function(response){
+        return $http.post(url,data).then(function(response,error){
             if(!createMethod){
                 return response.data;
             }else{
@@ -52,7 +71,7 @@ ngServices['httpSvc']=function($http,objectSvc) {
     }
 
     this.put=function(url,data,createMethod){
-        return $http.put(url,data).then(function(response){
+        return $http.put(url,data).then(function(response,error){
             if(!createMethod){
                 return response.data;
             }else{
