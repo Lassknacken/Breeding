@@ -89,6 +89,10 @@ p {
 .color-gray {
 	color: #ccc;
 }
+.text-bold {
+	font-weight: 600;
+	font-size: 13px;
+}
 /* Links
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 a {
