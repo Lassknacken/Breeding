@@ -1542,18 +1542,12 @@ require 'auth.php'; // from the PHP-API-AUTH project, see: https://github.com/me
 
 $auth = new PHP_API_AUTH(array(
 	'authenticator'=>function($user,$pass){ 
-		$this->db->query('select * from users');
-		while ($row = $this->db->fetchRow($result)) {
-				// if (!$auto_include && !in_array($row[0],array_merge($tables,$tableset))) continue;
-				// $collect[$row[0]][$row[1]]=array();
-				// $select[$row[2]][$row[3]]=array($row[0],$row[1]);
-				// if (!in_array($row[0],$tableset)) $tableset[] = $row[0];
-			}
-		
-		$_SESSION['user']=true;//($user=='admin' && $pass=='admin'); 
+		$_SESSION['user']=($user=='admin' && $pass=='admin'); 
 	}
 ));
-if ($auth->executeCommand()) exit(0);
+ if ($auth->executeCommand()){
+	  exit(0);
+ }
 if (empty($_SESSION['user']) || $_GET['csrf']!=$_SESSION['csrf']) {
 	header('HTTP/1.0 401 Unauthorized');
 	exit(0);

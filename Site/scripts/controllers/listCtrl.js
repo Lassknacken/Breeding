@@ -25,6 +25,9 @@ ngControllers["listCtrl"]=function($location,$rootScope, $scope, httpSvc){
     $scope.$on('unauthorized', function(event, args) {
 
         console.log("unauthorized");
+        httpSvc.cameFrom=$location.path();
+        $location.path("/");
+        document.getElementById('myModalOpen').click();
     // do what you want to do
     });
 

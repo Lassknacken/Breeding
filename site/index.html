@@ -54,47 +54,6 @@
 					<ul class="nav navbar-nav">
 						<li><a href="#"><span class="fa fa-home" aria-hidden="true"></span> Home</a></li>
 
-						<!--li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Riesenschnauzer pfeffer-salz<span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Rassebeschreibung</a></li>
-								<li><a href="#">Welpen</a></li>
-								<li aria-haspopup="true" class="dropdown-submenu ">
-									<a href="javascript:;" class="nav-link nav-toggle ">
-										Gesundheit
-										<span class="fa fa-caret-right"></span>
-									</a>
-									<ul class="dropdown-menu">
-										<li aria-haspopup="true" class="">
-											<a href="" class="nav-link "> Gesundheitsscheck</a>
-										</li>
-										<li aria-haspopup="true" class="">
-											<a href="" class="nav-link "> Gentest</a>
-										</li>
-										<li aria-haspopup="true" class="">
-											<a href="" class="nav-link "> Fehlercode</a>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</li>
-				
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Zucht <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Verpaarungen</a></li>
-								<li><a href="#">Zuchthunde</a></li>
-								<li><a href="#!/dogs">Zuchtliste</a></li>
-								<li><a href="#">Zuchtwarte</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Vermittlung <span class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Geplante Würfe</a></li>
-							</ul>
-						</li-->
-
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Registrierung<span class="caret"></span></a>
 							<ul class="dropdown-menu">
@@ -115,50 +74,60 @@
 						<li><a href="#about">Über uns</a></li>
 						<li><a href="#contact">Kontakt</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-right" ng-controller="authCtrl as auth">
 						<li><a href="./">
-							<span class="btn btn-circle fa fa-sign-out" aria-hidden="true"></span> Logout Benutzerkonto</a>
+							<span class="btn btn-circle fa fa-sign-out"></span> Logout Benutzerkonto</a>
 						</li>
 						<li>
-							<a data-placement="bottom" data-toggle="popover" data-title="Login" data-container="body" type="button" data-html="true" href="#" id="login">
-								<span class="btn btn-circle fa fa-sign-in" aria-hidden="true"></span> Login Benutzerkonto 
+							<a data-toggle="modal" data-target="#myModal" 
+							id="myModalOpen" type="button">
+								<span class="btn btn-circle fa fa-sign-in"></span> Login Benutzerkonto 
 							</a>
-							<div id="popover-content" class="hide">
-								<form class="form-inline" role="form">
-									<div class="form-group">
-										<div class="input-group">
-											<input type="text" class="form-control" placeholder="Username" aria-describedby="username">
-											<span class="input-group-addon" id="username">
-												<i class="fa fa-user"></i>
-											</span>
-										</div>
-									</div>	
-
-									<div class="form-group half-top">
-										<div class="input-group">
-											<input type="password" class="form-control" placeholder="Password" aria-describedby="password">
-											<span class="input-group-addon" id="password">
-												<i class="fa fa-key"></i>
-											</span>
-										</div>
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog" role="document">
+									<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" id="myModalClose" class="close" data-dismiss="modal" aria-label="Close">
+											<span aria-hidden="true">&times;</span>
+										</button>
+										<h4 class="modal-title" id="myModalLabel">Login Benutzerkonto</h4>
 									</div>
+									<div class="modal-body">
+										<form class="form-inline">
+											<div class="form-group">
+												<div class="input-group">
+													<input type="text" class="form-control" placeholder="Username" aria-describedby="username" ng-model="auth.credentials.username">
+													<span class="input-group-addon" id="username">
+														<i class="fa fa-user"></i>
+													</span>
+												</div>
+											</div>
+											<br>
 
-									<a class="font-size-small color-gray">Passwort vergessen</a>
-
-									<br/>
-
-									<div class="form-group half-top">
+											<div class="form-group half-top">
+												<div class="input-group">
+													<input type="password" class="form-control" placeholder="Password" aria-describedby="password" ng-model="auth.credentials.password">
+													<span class="input-group-addon" id="password">
+														<i class="fa fa-key"></i>
+													</span>
+												</div>
+											</div>											
+										</form>
+									</div>
+									<div class="modal-footer">
+										<a class="font-size-small color-gray">Passwort vergessen</a>
 										<button type="submit" class="btn btn-default btn-sm">Registrieren</button>
-										<button type="submit" class="btn btn-primary btn-sm">Anmelden</button>
+										<button class="btn btn-primary btn-sm" ng-click="auth.login();">Anmelden</button>
 									</div>
-								</form>
+									</div>
+								</div>
 							</div>
 						</li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
 		</nav>
-					
+
 		<main role="main" ng-view>
 		</main>	
 				
@@ -201,6 +170,7 @@
 
 		<script type="text/javascript" src="scripts/controllers/dogsCtrl.js"></script>
 		<script type="text/javascript" src="scripts/controllers/dogCtrl.js"></script>
+		<script type="text/javascript" src="scripts/controllers/authCtrl.js"></script>
 
 		<script type="text/javascript" src="scripts/controllers/listCtrl.js"></script>
 		

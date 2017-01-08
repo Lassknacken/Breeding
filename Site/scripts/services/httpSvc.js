@@ -1,36 +1,38 @@
 ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
     
+    this.csrf=undefined;
+    this.cameFrom=undefined;
 
     //Dogs
     this.getDogs=function(){
-        return this.get("/Api/api.php/dogs/",objectSvc.createDogs);
+        return this.get("/Api/api.php/dogs/?csrf="+this.csrf,objectSvc.createDogs);
     };
     this.getDog=function(id){
         if(!id){
             return undefined;
         }
 
-        return this.get("/Api/api.php/dogs/"+id);
+        return this.get("/Api/api.php/dogs/?csrf="+this.csrf+"&id="+id);
     };
     this.postDog=function(dog){
-        return this.post("/Api/api.php/dogs/",dog);
+        return this.post("/Api/api.php/dogs/?csrf="+this.csrf,dog);
     };
     this.putDog=function(id,dog){
-        return this.put("/Api/api.php/dogs/"+id,dog);
+        return this.put("/Api/api.php/dogs/?csrf="+this.csrf+"&id="+id,dog);
     };
 
     //Formvalue
     this.getFormvaules=function(){
-        return this.get("/Api/api.php/formvalues/",objectSvc.createFormvalues);
+        return this.get("/Api/api.php/formvalues/?csrf="+this.csrf,objectSvc.createFormvalues);
     };
 
     //Exam
     this.getExams=function(){
-        return this.get("/Api/api.php/exams/",objectSvc.createExams);
+        return this.get("/Api/api.php/exams/?csrf="+this.csrf,objectSvc.createExams);
     };
 
     this.getExam=function(id){
-        return this.get("/Api/api.php/exams/?id="+id,objectSvc.createExams);
+        return this.get("/Api/api.php/exams/?csrf="+this.csrf+"&id="+id,objectSvc.createExams);
     }
 
 
@@ -38,6 +40,11 @@ ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
     this.getConfig=function(name){
         return this.get("resources/configs/"+name+".json");
     };
+
+    //=====Session Handling
+    this.login=function(credentials){
+        return this.post("/Api/api.php",credentials);
+    }
 
     //General Stuff
     this.get=function(url,createMethod){
