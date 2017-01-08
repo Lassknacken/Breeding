@@ -1542,7 +1542,17 @@ require 'auth.php'; // from the PHP-API-AUTH project, see: https://github.com/me
 
 $auth = new PHP_API_AUTH(array(
 	'authenticator'=>function($user,$pass){ 
-		$_SESSION['user']=($user=='admin' && $pass=='admin'); 
+		
+		$test = new mysqli("192.168.178.23", "root", "ByZsql1988", "Breeding");
+
+		$result = $test->real_query("Select * From users Where username='$user' And password='$pass'");
+
+		if($test->connect_errno){
+			echo $test->connect_error;
+		}
+		//return $result == true;
+		$_SESSION['user']= ($result == true);
+		//$_SESSION['user']=($user=='admin' && $pass=='wurst'); 
 	}
 ));
  if ($auth->executeCommand()){
