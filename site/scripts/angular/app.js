@@ -30,6 +30,8 @@ myApp.config(function($routeProvider) {
         templateUrl : "/site/templates/table/list.htm"
     }).when("/dogs/:id", {
         templateUrl : "/site/templates/detail/detail.htm"
+    }).when("/register", {
+        templateUrl : "/site/templates/registration.htm"
     });
 });
 

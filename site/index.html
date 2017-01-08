@@ -79,46 +79,55 @@
 							<span class="btn btn-circle fa fa-sign-out"></span> Logout Benutzerkonto</a>
 						</li>
 						<li>
-							<a data-toggle="modal" data-target="#myModal" 
-							id="myModalOpen" type="button">
+							<a data-toggle="modal" data-target="#myModal" id="myModalOpen" type="button">
 								<span class="btn btn-circle fa fa-sign-in"></span> Login Benutzerkonto 
 							</a>
-							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog" role="document">
+							<div class="modal fade  bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+								<div class="modal-dialog modal-sm" role="document">
 									<div class="modal-content">
-									<div class="modal-header">
-										<button type="button" id="myModalClose" class="close" data-dismiss="modal" aria-label="Close">
-											<span aria-hidden="true">&times;</span>
-										</button>
-										<h4 class="modal-title" id="myModalLabel">Login Benutzerkonto</h4>
-									</div>
-									<div class="modal-body">
-										<form class="form-inline">
-											<div class="form-group">
-												<div class="input-group">
-													<input type="text" class="form-control" placeholder="Username" aria-describedby="username" ng-model="auth.credentials.username">
-													<span class="input-group-addon" id="username">
-														<i class="fa fa-user"></i>
-													</span>
+										<div class="modal-header">
+											<button type="button" id="myModalClose" class="close" data-dismiss="modal" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+											<h4 class="modal-title" id="myModalLabel">Login Benutzerkonto</h4>
+										</div>
+										<div class="modal-body">
+											<div class="container-fluid">
+												<div class="row">
+													<div class="col-xs-12">
+														<form class="form-inline">
+															<div class="form-group">
+																<div class="input-group">
+																	<input type="text" class="form-control" placeholder="Username" aria-describedby="username" ng-model="auth.credentials.username">
+																	<span class="input-group-addon" id="username">
+																		<i class="fa fa-user"></i>
+																	</span>
+																</div>
+															</div>
+															<br>
+
+															<div class="form-group half-top">
+																<div class="input-group">
+																	<input type="password" class="form-control" placeholder="Password" aria-describedby="password" ng-model="auth.credentials.password">
+																	<span class="input-group-addon" id="password">
+																		<i class="fa fa-key"></i>
+																	</span>
+																</div>
+															</div>								
+														</form>
+													</div>
+												</div>
+												<div class="row half-top">
+													<div class="col-xs-12">
+														<a class="font-size-small color-gray">Passwort vergessen</a>
+													</div>
 												</div>
 											</div>
-											<br>
-
-											<div class="form-group half-top">
-												<div class="input-group">
-													<input type="password" class="form-control" placeholder="Password" aria-describedby="password" ng-model="auth.credentials.password">
-													<span class="input-group-addon" id="password">
-														<i class="fa fa-key"></i>
-													</span>
-												</div>
-											</div>											
-										</form>
-									</div>
-									<div class="modal-footer">
-										<a class="font-size-small color-gray">Passwort vergessen</a>
-										<button type="submit" class="btn btn-default btn-sm">Registrieren</button>
-										<button class="btn btn-primary btn-sm" ng-click="auth.login();">Anmelden</button>
-									</div>
+										</div>
+										<div class="modal-footer">
+											<a type="submit" class="btn btn-default btn-sm" href="#!/register">Registrieren</a>
+											<button class="btn btn-primary btn-sm" ng-click="auth.login();">Anmelden</button>
+										</div>
 									</div>
 								</div>
 							</div>
