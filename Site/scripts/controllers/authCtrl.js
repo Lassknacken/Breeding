@@ -5,7 +5,7 @@ ngControllers["authCtrl"]=function($location, httpSvc){
         console.log("test");
     };
 
-    _self.login=function(){
+    _self.login=function(target){
         console.log("test2");
         httpSvc.login(_self.credentials).then(function(response){
             httpSvc.csrf=response;
@@ -14,6 +14,8 @@ ngControllers["authCtrl"]=function($location, httpSvc){
                 if(httpSvc.cameFrom){
                     $location.path(httpSvc.cameFrom);
                 }
+
+                $location.path(target);
             }
         })
 

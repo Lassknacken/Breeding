@@ -33,8 +33,8 @@
 		</ul>
 	</div>
     <div ng-if="template.type==='redirect'">
-        <a class="btn btn-sm btn-default" ng-class="template.design.style" ng-href="{{template.target.split('$').join(val[template.property])}}" data-toggle="tooltip" title="{{template.tooltip}}">
-            {{template.title}} {{template.suffix}}
+        <a class="btn btn-sm btn-default no-padding-top-bottom" ng-class="template.design.style" ng-href="{{template.target.split('$').join(val[template.property])}}" data-toggle="tooltip" title="{{template.tooltip}}">
+            <span class="icon-detail"></span> {{template.title}} {{template.suffix}}
         </a>
     </div>
     <div ng-if="template.type==='type'" uib-tooltip="{{template.tooltip}}" tooltip-placement="top" tooltip-class="amistooltip">

@@ -32,6 +32,10 @@ myApp.config(function($routeProvider) {
         templateUrl : "/site/templates/detail/detail.htm"
     }).when("/register", {
         templateUrl : "/site/templates/registration.htm"
+    }).when("/area", {
+        templateUrl : "/site/templates/area.htm"
+    }).when("/profil", {
+        templateUrl : "/site/templates/profil.htm"
     });
 });
 
