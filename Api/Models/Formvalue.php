@@ -1,6 +1,8 @@
 <?php
-class Formvalue{
-    public $Id;
-    public $Name;
+namespace Models{
+    class formvalue{
+        public $Id;
+        public $Name;
+    }
 }
 ?>

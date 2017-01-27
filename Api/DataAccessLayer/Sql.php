@@ -1,27 +1,56 @@
 <?php
-namespace dataAccessLayer{   
+namespace DataAccessLayer{   
     class sql
     {
 
-        public $connection;
+        private $connection;
 
-        public function open()
+
+        public function query($sql){
+            
+            try{
+                $this->open();
+
+                $result=array();
+
+                if ($rows = $this->connection->query($sql)) {
+                    
+                    $first_row = true;
+                    while ($row = mysqli_fetch_row($rows)) {
+                        if ($first_row) $first_row = false;
+                        
+                        array_push($result,$row);
+
+                    }
+
+                    return $result;
+                }
+
+            }catch(exception $ex){
+
+            }finally{
+                $this->close();
+            }
+
+        }
+
+        private function open()
         {
             $servername = "192.168.178.23";
             $username = "root";
             $password = "ByZsql1988";
-            $dbname = "homezone";
+            $dbname = "Breeding";
 
             try{
                 // Create connection
-                $conn = new mysqli($servername, $username, $password, $dbname);
+                $this->connection = new \mysqli($servername, $username, $password, $dbname);
                 // Check connection
-                if ($conn->connect_error) 
+                if ($this->connection->connect_error) 
                 {
-                    die("Connection failed: " . $conn->connect_error);
+                    die("Connection failed: " . $this->connection->connect_error);
                 }
 
-                $this->connection=$conn;
+                mysqli_set_charset($this->connection, "utf8");
             }
             catch(exception $ex)
             {
@@ -29,8 +58,8 @@ namespace dataAccessLayer{
             }
         }
 
-        public function query($sql){
-
+        private function close(){
+            $this->connection->close();
         }
     }
 }

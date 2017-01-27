@@ -1,9 +1,8 @@
 <?php
 namespace Models{
-    class owner{
+    class exam{
         public $Id;
         public $Name;
-        public $Familyname;
     }
 }
 ?>

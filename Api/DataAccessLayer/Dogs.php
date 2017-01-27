@@ -1,37 +1,38 @@
 <?php
-namespace dataAccessLayer{
+namespace DataAccessLayer{
+require_once("Sql.php");
+require("./Models/Dog.php");
+
     class dogs{
 
         private $sql;
 
-        private function ctor()
+        function __construct()
         {
-            $sql= new dataAccessLayer\sql();
-            
+            $this->sql= new sql();
         }
 
         public function get()
         {    
-            ctor();
 
             try{
-                $sql->open();
+                $dogs= $this->getModels();
 
-
+                $result=$this->transformAll($dogs);
+                return $result;
             }
             catch(exception $ex){
-
+                return $ex;
             }
-            
-
-
-
-
         }
 
-        public function get_id($id)
+        public function getId($id)
         {
+            $dogModel= $this->getModel($id);
 
+            $result=$this->transform($dogModel);
+            
+            return $result;
         }
 
         public function create($dog)
@@ -42,6 +43,49 @@ namespace dataAccessLayer{
         public function update($id,$dog)
         {
             
+        }
+
+        //=====
+
+        private function getModels(){
+            $dogs= $this->sql->query("select * from dogs");
+            
+            return $dogs;
+        }
+
+        private function getModel($id){
+            if(!is_int($id)){
+                return null;
+            }
+
+            $dogs= $this->sql->query("select * from dogs where id={$id}");
+
+            if($dogs==null || sizeof($dogs)!=1){
+                return null;
+            }
+
+            return $dogs[0];
+        }
+
+        private function transformAll($dogs){
+            $result=array();
+            foreach($dogs as $dog){
+                array_push($result,$this->transform($dog));
+            }
+            return $result;
+        }
+
+        private function transform($dbItem){
+            $result=new \models\dog();
+            
+            $result->Id=intval($dbItem[0]);
+            $result->Name=$dbItem[1];
+            $result->Birth=\DateTime::createFromFormat("Y-m-d",$dbItem[2],new \DateTimeZone('UTC'));
+            $result->Male=boolval($dbItem[3]);
+            $result->Chipnumber=$dbItem[4];
+            $result->FormvalueId=intval($dbItem[5]);
+
+            return $result;
         }
 
     }
