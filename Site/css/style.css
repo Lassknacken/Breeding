@@ -139,7 +139,9 @@ a {
     padding: 6px 8px;
     font-size: 13px;
 }
-
+select.form-control {
+    padding: 2px 8px;
+}
 input[type=date].form-control, 
 input[type=time].form-control, 
 input[type=datetime-local].form-control, 
@@ -252,7 +254,7 @@ nav .fa.fa-sign-out {
 	margin-top: 5px;
 }
 
-.btn.btn-default .fa.fa-angle-right {
+[class*="btn-"] [class*="fa-angle-"] {
 	font-weight: 600;
 }
 /* Lists
