@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputRace">Rasse</label>
-                    <input type="text" class="form-control" id="exampleInputRace">
+                    <input type="text" class="form-control" id="exampleInputRace" ng-model="dogCtrl.dog.race">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputChipnumber">Chipnummer</label>
@@ -71,15 +71,13 @@
          <div class="row">
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-4">
-                <div class="form-group">
-                    <label for="exampleInputFile">Formwert</label>
-                    <select class="form-control" ng-model="dog.formvalue" ng-options="value.name for value in dog.formvalues"></select>
-                </div>
+                <formvalue val="dogCtrl.dog.formvalue">
+                </formvalue>
             </div>
             <div class="col-xs-12 col-md-4">
                  <div class="form-group">
                     <label for="exampleInputTest">Prüfungen</label>
-                    <select class="form-control"></select>
+                    <exam ng-repeat="exam in dogCtrl.dog.exams" val="exam"></exam>
                 </div>
             </div>
         </div>
@@ -89,7 +87,9 @@
             <div class="col-xs-12 col-md-4">
                 <div class="form-group">
                     <label for="exampleInput">Zuchtfähig</label>
-                    <select class="form-control">
+                    <select class="form-control" ng-model="dogCtrl.dog.breedable">
+                        <option ng-value="true">ja</option>
+                        <option ng-value="false">nein</option>
                     </select>
                 </div>
             </div>
@@ -193,9 +193,9 @@
         
          <div class="row">
             <div class="col-xs-12 col-md-4">
-                 <button type="submit" class="btn btn-default" ng-click="">
+                 <a class="btn btn-default" ng-href="#!/dogs/">
                     zurück
-                </button>
+                </a>
             </div>
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-4">    

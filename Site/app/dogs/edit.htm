@@ -166,7 +166,11 @@
         </div>
         
         <div class="row">
-            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-4">
+                <a class="btn btn-default" ng-href="#!/dogs/{{dogCtrl.dog.id}}">
+                    zurück
+                </a>
+            </div>
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-4">
                 <button type="submit" class="btn btn-default right" ng-click="dogCtrl.dog.saveDog()">

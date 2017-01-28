@@ -24,8 +24,8 @@ myApp.config(function($routeProvider) {
         templateUrl : "/site/app/registration.htm"
     }).when("/area", {
         templateUrl : "/site/app/area.htm"
-    // }).when("/edit_modus", {
-    //     templateUrl : "/site/templates/edit_modus.htm"
+    }).when("/profil", {
+        templateUrl : "/site/app/profil.htm"
     }).when("/dogs", {
         templateUrl : "/site/app/table/list.htm",
         controller:"dogs_controller",
@@ -42,8 +42,6 @@ myApp.config(function($routeProvider) {
         templateUrl : "/site/app/dogs/edit.htm",
         controller:"dog_controller",
         controllerAs: "dogCtrl"
-    }).when("/profil", {
-        templateUrl : "/site/templates/profil.htm"
     });
 });
 
