@@ -19,21 +19,29 @@ for(var key in ngDirectives){
 myApp.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "/site/templates/home.htm"
-    }).when("/edit_modus", {
-        templateUrl : "/site/templates/edit_modus.htm"
+        templateUrl : "/site/app/home.htm"
+    }).when("/register", {
+        templateUrl : "/site/app/registration.htm"
+    }).when("/area", {
+        templateUrl : "/site/app/area.htm"
+    // }).when("/edit_modus", {
+    //     templateUrl : "/site/templates/edit_modus.htm"
     }).when("/dogs", {
         templateUrl : "/site/app/table/list.htm",
         controller:"dogs_controller",
         controllerAs: "list_controller"
     }).when("/dogs/:id", {
-        templateUrl : "/site/app/dogs/dog.htm",
+        templateUrl : "/site/app/dogs/detail.htm",
         controller:"dog_controller",
         controllerAs: "dogCtrl"
-    }).when("/register", {
-        templateUrl : "/site/templates/registration.htm"
-    }).when("/area", {
-        templateUrl : "/site/templates/area.htm"
+    }).when("/dogs/create", {
+        templateUrl : "/site/app/dogs/create.htm",
+        controller:"dog_controller",
+        controllerAs: "dogCtrl"
+    }).when("/dogs/:id/edit", {
+        templateUrl : "/site/app/dogs/edit.htm",
+        controller:"dog_controller",
+        controllerAs: "dogCtrl"
     }).when("/profil", {
         templateUrl : "/site/templates/profil.htm"
     });
