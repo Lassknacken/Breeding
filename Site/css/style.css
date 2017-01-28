@@ -55,6 +55,10 @@ footer {
 	opacity: 0.7;
 	bottom: 0;
 }
+hr {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 h1, h2, h3, h4, h5, h6 {
@@ -70,6 +74,7 @@ h4 {
 }
 h3 {
 	margin-top: 0;
+	margin-bottom: 0;
 }
 h4 {
 	margin-top: 0;
@@ -164,15 +169,39 @@ nav .fa.fa-sign-out {
 }
 .banner,
 .banner-1,
-.banner-2 {
+.banner-2,
+.banner-3,
+.banner-4,
+.banner-5,
+.banner-6,
+.banner-7,
+.banner-8,
+.image-profile-dog {
 	background-attachment: scroll;
 	background-repeat: no-repeat;
+}
+.banner,
+.banner-1,
+.banner-2,
+.banner-3,
+.banner-4,
+.banner-5,
+.banner-6,
+.banner-7,
+.banner-8 {
 	background-position: top center;
 }
 .banner-1,
-.banner-2 {
+.banner-2,
+.banner-3,
+.banner-4,
+.banner-5,
+.banner-6,
+.banner-7,
+.banner-8 {
 	width: 300px;
 	height: 199px;
+	border: 1px solid #eeeeef;
 }
 .banner {
 	background-image: url("../images/banner.jpg");
@@ -180,11 +209,36 @@ nav .fa.fa-sign-out {
 	height: 272px;
 	margin: 0 auto;
 }
+.image-profile-dog {
+	background-image: url("../images/image_profile_dog.jpg");
+	width: 260px;
+	height: 260px;
+	
+	background-position: left top;
+}
 .banner-1 {
 	background-image: url("../images/banner_1.jpg");
 }
 .banner-2 {
 	background-image: url("../images/banner_2.jpg");
+}
+.banner-3 {
+	background-image: url("../images/banner_3.jpg");
+}
+.banner-4 {
+	background-image: url("../images/banner_4.jpg");
+}
+.banner-5 {
+	background-image: url("../images/banner_5.jpg");
+}
+.banner-6 {
+	background-image: url("../images/banner_6.jpg");
+}
+.banner-7 {
+	background-image: url("../images/banner_7.jpg");
+}
+.banner-8 {
+	background-image: url("../images/banner_8.jpg");
 }
 .icon-detail {
 	background-image: url("../images/icon_detail.svg");
@@ -196,6 +250,10 @@ nav .fa.fa-sign-out {
 	background-size: 100%;
 	display: inline-block;
 	margin-top: 5px;
+}
+
+.btn.btn-default .fa.fa-angle-right {
+	font-weight: 600;
 }
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -343,10 +401,10 @@ table tr td:last-child {
 .popover-content .form-inline,
 .popover-content .inline-group {
 	width: 100%;
-} 
+}
+
 /* Misc
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-hr {}
 .text-muted {
 	margin: 0 10px 0 0;
 }
@@ -375,7 +433,7 @@ hr {}
 .bg-color-white {
 	background-color: #fff;
 	margin-top: 20px;
-	padding: 20px;
+	padding: 30px 40px;
 }
 .fixed-height {
 	height: 100%; 

@@ -3,8 +3,15 @@
     <form>
     
         <div class="row">
-            <div class="col-xs-12">
-                <h3>Mein Profil</h3>
+            <div class="col-xs-8">
+                <h3>Mein Kundenprofil</h3>
+            </div>
+            <div class="col-xs-4 text-right">
+                <button type="submit" class="btn btn-default" ng-click="">
+                    <span class="fa fa-edit"></span> bearbeiten
+                </button>
+            </div>
+            <div class="col-xs-12 border-small">
                 <hr/>
             </div>
         </div>
@@ -43,78 +50,38 @@
 
             <div class="col-xs-12 col-md-4">
                 <div class="form-group">
-                    <label for="exampleInputName">Name</label>
-                    <input type="text" class="form-control" id="exampleInputName" placeholder="Haily" ng-model="">
+                    <label for="exampleInputFirstName">Vorname</label>
+                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Max" ng-model="">
                 </div>
                 <div class="form-group">
-                            <label for="exampleInputName">Geschlecht</label>
-                            <select class="form-control" ng-model="">
-                                <option value="1">männlich</option>
-                                <option value="0">weiblich</option>
-                            </select>
-                        </div>
+                    <label for="exampleInputName">Name</label>
+                    <input type="text" class="form-control" id="exampleInputName" placeholder="Mustermann" ng-model="">
+                </div>
                 <div class="form-group">
                     <label for="exampleInputBirthday">Geburtsdatum</label>
                     <input type="date" class="form-control" id="exampleInputBirthday" ng-model="">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputRace">Rasse</label>
-                    <input type="text" class="form-control" id="exampleInputRace">
+                    <label for="exampleInputStreet">Straße, Hausnummer</label>
+                    <input type="text" class="form-control" id="exampleInputStreet">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputChipnumber">Chipnummer</label>
-                    <input type="text" class="form-control" id="exampleInputChipnumber" ng-model="">
+                    <label for="exampleInputPlace">PLZ, Ort</label>
+                    <input type="text" class="form-control" id="exampleInputPlace" ng-model="">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputParent1">Name der Mutter</label>
-                    <input type="text" class="form-control" id="exampleInputParent1">
+                    <label for="exampleInputPhone">Telefonnummer</label>
+                    <input type="text" class="form-control" id="exampleInputPhone">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputParent2">Name des Vaters</label>
-                    <input type="text" class="form-control" id="exampleInputParent2">
+                    <label for="exampleInputEmail">E-mail</label>
+                    <input type="text" class="form-control" id="exampleInputEmail">
                 </div>
             </div>
             
-            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-4 text-right"></div>
         </div>
 
-        <hr/>
-
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-                <h4>Angaben zur Gesundheit</h4>
-            </div>
-        </div>
-
-         <div class="row">
-            <div class="col-xs-12 col-md-4">
-                 <div class="form-group">
-                    <label for="exampleInputFile">Formwert</label>
-                    <select class="form-control" ng-model="dog.formvalue" ng-options="">
-                    </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4">
-                 <div class="form-group">
-                    <label for="exampleInputTest">Prüfung</label>
-                    <select class="form-control"></select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12 col-md-4">
-                 <div class="form-group">
-                    <label for="exampleInput">Zuchtfähig</label>
-                    <select class="form-control">
-                    </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4"></div>
-            <div class="col-xs-12 col-md-4"></div>
-        </div>
-       
         <hr/>
 
         <div class="row">
@@ -125,56 +92,80 @@
 
         <div class="row">
             <div class="col-xs-12 col-md-4">
-
                 <div class="form-group">
-                    <label for="exampleInputName">Name</label>
-                    <input type="text" class="form-control" id="exampleInputName">
+                    <label for="exampleInputFirstName">Vorname</label>
+                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Max" ng-model="">
                 </div>
             </div>
-            <div class="col-xs-12 col-md-4">
-                <div class="form-group">
-                    <label for="exampleInputNumber">Zuchtbuchnummer</label>
-                    <input type="text" class="form-control" id="exampleInputNumber">
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4"></div>
-        </div>
-
-        <hr/>
-    
-        <div class="row">
-            <div class="col-xs-12 col-md-12">
-                <h4>Angaben zum Besitzer</h4>
-            </div>
-        </div>
-
-        <div class="row">
             <div class="col-xs-12 col-md-4">
                 <div class="form-group">
                     <label for="exampleInputName">Name</label>
                     <input type="text" class="form-control" id="exampleInputName">
                 </div>
             </div>
+            <div class="col-xs-12 col-md-4 text-right"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputName">Name des Zwingers</label>
+                    <input type="text" class="form-control" id="exampleInputName">
+                </div>
+            </div>
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-4"></div>
         </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                 <div class="form-group">
+                    <label for="exampleInputStreet">Straße, Hausnummer</label>
+                    <input type="text" class="form-control" id="exampleInputStreet">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputPlace">PLZ, Ort</label>
+                    <input type="text" class="form-control" id="exampleInputPlace" ng-model="">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                 <div class="form-group">
+                    <label for="exampleInputPhone">Telefonnummer</label>
+                    <input type="text" class="form-control" id="exampleInputPhone" ng-model="">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputEmail">Email</label>
+                    <input type="text" class="form-control" id="exampleInputEmail" ng-model="">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4"></div>
+        </div>
+
 
         <div class="row">
             <div class="col-xs-12 col-md-12">
                 <hr/>
             </div>
         </div>
-        
-        <div class="row">
+
+         <div class="row">
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-4">
-                <button type="submit" class="btn btn-default right" ng-click="">
+                <button type="submit" class="btn btn-default right" ng-click="dog.saveDog()">
                     <span class="fa fa-save"></span> speichern
                 </button>
             </div>
         </div>
-       
+
     </form>
 
 </div>
