@@ -1,4 +1,4 @@
-<div class="container bg-color-white" ng-controller="dogCtrl as dog">
+<div class="container bg-color-white" ng-controller="dogCtrl as dogCtrl">
     
     <form>
     
@@ -51,18 +51,19 @@
             <div class="col-xs-12 col-md-4">
                 <div class="form-group">
                     <label for="exampleInputName">Name</label>
-                    <input type="text" class="form-control" id="exampleInputName" placeholder="Haily" ng-model="dog.dog.name">
+                    <input type="text" class="form-control" id="exampleInputName" placeholder="Haily" ng-model="dogCtrl.dog.name">
                 </div>
                 <div class="form-group">
                             <label for="exampleInputName">Geschlecht</label>
-                            <select class="form-control" ng-model="dog.dog.male">
+                            <select class="form-control" ng-model="dogCtrl.dog.male">
                                 <option value="1">männlich</option>
                                 <option value="0">weiblich</option>
                             </select>
                         </div>
                 <div class="form-group">
                     <label for="exampleInputBirthday">Geburtsdatum</label>
-                    <input type="date" class="form-control" id="exampleInputBirthday" ng-model="dog.dog.birth">
+                    {{dogCtrl.dog.birth}}
+                    <input type="date" class="form-control" id="exampleInputBirthday" ng-model="dogCtrl.dog.birth">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputRace">Rasse</label>
@@ -70,7 +71,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputChipnumber">Chipnummer</label>
-                    <input type="text" class="form-control" id="exampleInputChipnumber" ng-model="dog.dog.chipnumber">
+                    <input type="text" class="form-control" id="exampleInputChipnumber" ng-model="dogCtrl.dog.chipnumber">
                 </div>
             </div>
             

@@ -84,6 +84,8 @@ require("./Models/Dog.php");
             $result->Male=boolval($dbItem[3]);
             $result->Chipnumber=$dbItem[4];
             $result->FormvalueId=intval($dbItem[5]);
+            $result->Booknumber=$dbItem[6];
+            $result->Breedable=boolval($dbItem[7]);
 
             return $result;
         }

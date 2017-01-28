@@ -20,16 +20,16 @@ myApp.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "/site/templates/home.htm"
-    }).when("/dogs", {
-        templateUrl : "/site/templates/dogs.htm"
-    }).when("/wurst", {
-        templateUrl : "/site/templates/wurst.htm"
     }).when("/edit_modus", {
         templateUrl : "/site/templates/edit_modus.htm"
     }).when("/dogs", {
-        templateUrl : "/site/templates/table/list.htm"
+        templateUrl : "/site/app/table/list.htm",
+        controller:"dogs_controller",
+        controllerAs: "list_controller"
     }).when("/dogs/:id", {
-        templateUrl : "/site/templates/detail/detail.htm"
+        templateUrl : "/site/app/dogs/dog.htm",
+        controller:"dog_controller",
+        controllerAs: "dogCtrl"
     }).when("/register", {
         templateUrl : "/site/templates/registration.htm"
     }).when("/area", {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="de">
 	<head>
-
+	<base href="/site/">
 	<!-- Basic Page Needs
 	––––––––––––––––––––––––––––––––––––––––––––––––––-->
 	<meta charset="utf-8">
@@ -157,13 +157,22 @@
 
 		<script type="text/javascript" src="scripts/services/objectSvc.js"></script>
 		<script type="text/javascript" src="scripts/services/httpSvc.js"></script>		
-		<script type="text/javascript" src="scripts/directives/cell.js"></script>		
+		<script type="text/javascript" src="scripts/directives/cell.js"></script>
 
-		<script type="text/javascript" src="scripts/controllers/dogsCtrl.js"></script>
-		<script type="text/javascript" src="scripts/controllers/dogCtrl.js"></script>
+		<script type="text/javascript" src="app/dogs/dog_service.js"></script>
+		<script type="text/javascript" src="app/dogs/dogs_controller.js"></script>
+		<script type="text/javascript" src="app/dogs/dog_controller.js"></script>
+		
+		<script type="text/javascript" src="app/formvalues/formvalue_service.js"></script>
+		<script type="text/javascript" src="app/formvalues/formvalue_directive.js"></script>
+
+		<script type="text/javascript" src="app/exams/exam_service.js"></script>
+		<script type="text/javascript" src="app/exams/exam_directive.js"></script>
+		
+		
 		<script type="text/javascript" src="scripts/controllers/authCtrl.js"></script>
 
-		<script type="text/javascript" src="scripts/controllers/listCtrl.js"></script>
+		<!--<script type="text/javascript" src="app/table/listCtrl.js"></script>-->
 		
 		<script type="text/javascript" src="scripts/angular/app.js"> </script>
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>-->

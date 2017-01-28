@@ -6,6 +6,6 @@
             val: "=",
             template: "="
         },
-        templateUrl: 'templates/table/cell.htm'
+        templateUrl: 'app/table/cell.htm'
     };
 };

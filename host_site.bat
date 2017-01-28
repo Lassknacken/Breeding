@@ -3,8 +3,7 @@ rem cd C:\Users\Benjamin\Documents\GitHub\Kostenverwaltung
 rem cd C:\Users\Benjamin\Documents\GitHub\survcam
 rem php artisan serv --host 192.168.178.26 --port 8000
 
-start "api" php_api.bat
-start "site" php_site.bat
+start "api" php_site.bat
 rem start "npm" _npm.bat
 start "code" code ./
 

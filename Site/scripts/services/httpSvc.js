@@ -1,53 +1,35 @@
 ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
     
-    this.csrf=undefined;
-    this.cameFrom=undefined;
+    let _self =this;
 
-    //Dogs
-    this.getDogs=function(){
-        return this.get("/Api/api.php/dogs/?csrf="+this.csrf,objectSvc.createDogs);
-    };
-    this.getDog=function(id){
-        if(!id){
-            return undefined;
-        }
+    _self.csrf=undefined;
+    _self.cameFrom=undefined;
+    _self.apiBaseUrl='http://localhost:8001/api/api.php';
 
-        return this.get("/Api/api.php/dogs/?csrf="+this.csrf+"&id="+id);
-    };
-    this.postDog=function(dog){
-        return this.post("/Api/api.php/dogs/?csrf="+this.csrf,dog);
-    };
-    this.putDog=function(id,dog){
-        return this.put("/Api/api.php/dogs/?csrf="+this.csrf+"&id="+id,dog);
-    };
-
-    //Formvalue
-    this.getFormvaules=function(){
-        return this.get("/Api/api.php/formvalues/?csrf="+this.csrf,objectSvc.createFormvalues);
-    };
 
     //Exam
-    this.getExams=function(){
-        return this.get("/Api/api.php/exams/?csrf="+this.csrf,objectSvc.createExams);
+    _self.getExams=function(){
+        return _self.get(_self.apiBaseUrl+"/exams",objectSvc.createExams);
     };
 
-    this.getExam=function(id){
-        return this.get("/Api/api.php/exams/?csrf="+this.csrf+"&id="+id,objectSvc.createExams);
+    _self.getExam=function(id){
+        return _self.get(_self.apiBaseUrl+"/exams"+"?id="+id,objectSvc.createExams);
     }
 
 
     //=====Configs
-    this.getConfig=function(name){
-        return this.get("resources/configs/"+name+".json");
+    _self.getConfig=function(name){
+        return _self.get("app/"+name+"/"+name+".json");
     };
 
     //=====Session Handling
-    this.login=function(credentials){
-        return this.post("/Api/api.php",credentials);
+    _self.login=function(credentials){
+        return _self.post(_self.apiBaseUrl+"",credentials);
     }
 
     //General Stuff
-    this.get=function(url,createMethod){
+    _self.get=function(url,createMethod){
+        console.log(url);
         return $http.get(url).then(function(response){
             if(!createMethod){
                 return response.data;
@@ -67,7 +49,7 @@ ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
         });
     }
     
-    this.post=function(url,data,createMethod){
+    _self.post=function(url,data,createMethod){
         return $http.post(url,data).then(function(response,error){
             if(!createMethod){
                 return response.data;
@@ -77,7 +59,7 @@ ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
         });
     }
 
-    this.put=function(url,data,createMethod){
+    _self.put=function(url,data,createMethod){
         return $http.put(url,data).then(function(response,error){
             if(!createMethod){
                 return response.data;

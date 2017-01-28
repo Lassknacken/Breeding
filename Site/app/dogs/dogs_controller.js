@@ -1,5 +1,5 @@
-ngControllers["listCtrl"]=function($location,$rootScope, $scope, httpSvc){
-    var _self=this;
+ngControllers["dogs_controller"]=function($location, $scope, httpSvc, dog_service){
+    let _self=this;
 
 
     _self.ctor=function(){
@@ -15,9 +15,10 @@ ngControllers["listCtrl"]=function($location,$rootScope, $scope, httpSvc){
 
 
     _self.loadItems=function(sourceName){
-        httpSvc[sourceName]().then(function(result){
-            _self.items=result;
-        });
+        dog_service.getDogs()
+            .then(function(result){
+                _self.items=result;
+            });
 
     };
 

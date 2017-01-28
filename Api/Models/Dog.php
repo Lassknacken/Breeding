@@ -7,6 +7,8 @@ namespace Models{
         public $Male;
         public $Chipnumber;
         public $FormvalueId;
+        public $Booknumber;
+        public $Breedable;
 
         public $Formvalue;
         public $Exams;
