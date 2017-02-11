@@ -9,19 +9,6 @@ create table Breeding.exams(
 
     PRIMARY key (id)
 );
-INSERT INTO Breeding.exams (name) values ('Zuchttauglichkeit');
-INSERT INTO Breeding.exams (name) values ('Wesenstest');
-INSERT INTO Breeding.exams (name) values ('Begleithund');
-INSERT INTO Breeding.exams (name) values ('Ausdauer');
-INSERT INTO Breeding.exams (name) values ('IPO 1');
-INSERT INTO Breeding.exams (name) values ('IPO 2');
-INSERT INTO Breeding.exams (name) values ('IPO 3');
-INSERT INTO Breeding.exams (name) values ('Stöberprüfung');
-INSERT INTO Breeding.exams (name) values ('FH 1');
-INSERT INTO Breeding.exams (name) values ('FH 2');
-INSERT INTO Breeding.exams (name) values ('THS');
-INSERT INTO Breeding.exams (name) values ('Agility');
-INSERT INTO Breeding.exams (name) values ('Guidance');
 
 
 
@@ -33,13 +20,6 @@ create table Breeding.formvalues(
 	
 	PRIMARY key (id)
 );
-
-INSERT INTO Breeding.formvalues (name) values ('vorzüglich');
-INSERT INTO Breeding.formvalues (name) values ('sehr gut');
-INSERT INTO Breeding.formvalues (name) values ('gut');
-INSERT INTO Breeding.formvalues (name) values ('genügend');
-INSERT INTO Breeding.formvalues (name) values ('viel versprechend');
-INSERT INTO Breeding.formvalues (name) values ('versprechend');
 
 #3
 drop table if exists Breeding.users;
@@ -103,8 +83,55 @@ create table Breeding.dogs_exams(
 drop table if exists Breeding.breeders;
 create table Breeding.breeders(
 	id int not null AUTO_INCREMENT,
-	breedbooknumber varchar(100) not null,
-	kennelname varchar(200),
+	name varchar(100) null,
+	familyname varchar(100) not null,
 	
 	primary key (id)
+);
+
+#8
+drop table if exists Breeding.kennels;
+create table Breeding.kennels(
+	id int not null AUTO_INCREMENT,
+	name varchar(100) not null,
+	active BOOL not null default false,
+	UNIQUE (name),
+	primary key (id)
+);
+
+#9
+drop table if exists Breeding.dogs_kennels;
+create table Breeding.dogs_kennels(
+    id int not null AUTO_INCREMENT,
+    dog_id int not null,
+    kennel_id int not null,
+
+	primary key (id),
+	foreign key (dog_id) references Breeding.dogs(id),
+   foreign key (kennel_id) references Breeding.kennels(id)
+);
+
+#10
+drop table if exists Breeding.breeders_kennels;
+create table Breeding.breeders_kennels(
+    id int not null AUTO_INCREMENT,
+    breeder_id int not null,
+    kennel_id int not null,
+
+	primary key (id),
+	foreign key (breeder_id) references Breeding.breeders(id),
+   foreign key (kennel_id) references Breeding.kennels(id)
+);
+
+#11
+drop table if exists Breeding.dogs_breedings;
+create table Breeding.dogs_breedings(
+    id int not null AUTO_INCREMENT,
+    male_id int null,
+    female_id int null,
+    date date null,
+    
+    primary key (id),
+    foreign key (male_id) references Breeding.dogs(id),
+    foreign key (female_id) references Breeding.dogs(id)
 );
