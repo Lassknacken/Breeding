@@ -29,7 +29,7 @@ myApp.config(function($routeProvider) {
     }).when("/dogs", {
         templateUrl : "/site/app/table/list.htm",
         controller:"dogs_controller",
-        controllerAs: "list_controller"
+        controllerAs: "listController"
     }).when("/dogs/:id", {
         templateUrl : "/site/app/dogs/detail.htm",
         controller:"dog_controller",

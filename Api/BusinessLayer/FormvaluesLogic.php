@@ -11,9 +11,9 @@ namespace BusinessLayer{
             $this->dal=new \DataAccessLayer\formvalues();
         }
 
-        public function get()
+        public function get($page,$size)
         {
-            $dogs=$this->dal->get();
+            $dogs=$this->dal->get($page,$size);
 
             return $dogs;
         }

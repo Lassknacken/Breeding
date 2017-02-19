@@ -13,11 +13,11 @@ require("./Models/Formvalue.php");
                 $this->sql= new sql();
         }
 
-        public function get()
+        public function get($page,$size)
         {    
 
             try{
-                $models= $this->getModels();
+                $models= $this->getModels($page,$size);
 
                 $result=$this->transformAll($models);
                 return $result;
@@ -48,9 +48,11 @@ require("./Models/Formvalue.php");
 
         //=====
 
-        private function getModels(){
-            $models= $this->sql->query("select * from formvalues");
-            
+        private function getModels($page,$size){
+            $query="select * from formvalues";
+          
+            $models= $this->sql->query($query,$page,$size);
+
             return $models;
         }
 

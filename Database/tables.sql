@@ -135,3 +135,6 @@ create table Breeding.dogs_breedings(
     foreign key (male_id) references Breeding.dogs(id),
     foreign key (female_id) references Breeding.dogs(id)
 );
+
+
+

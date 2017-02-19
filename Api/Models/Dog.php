@@ -3,6 +3,7 @@ namespace Models{
     class dog{
         public $Id;
         public $Name;
+        public $LastName;
         public $Birth;
         public $Male;
         public $Chipnumber;

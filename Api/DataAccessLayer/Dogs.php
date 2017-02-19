@@ -12,11 +12,11 @@ require("./Models/Dog.php");
             $this->sql= new sql();
         }
 
-        public function get()
+        public function get($page,$size)
         {    
 
             try{
-                $dogs= $this->getModels();
+                $dogs= $this->getModels($page,$size);
 
                 $result=$this->transformAll($dogs);
                 return $result;
@@ -47,8 +47,11 @@ require("./Models/Dog.php");
 
         //=====
 
-        private function getModels(){
-            $dogs= $this->sql->query("select * from dogs");
+        private function getModels($page,$size)
+        {
+            $query="select * from v_dogs_kennels";
+
+            $dogs= $this->sql->query($query,$page,$size);
             
             return $dogs;
         }
@@ -58,7 +61,7 @@ require("./Models/Dog.php");
                 return null;
             }
 
-            $dogs= $this->sql->query("select * from dogs where id={$id}");
+            $dogs= $this->sql->query("select * from v_dogs_kennels where dog_id={$id}");
 
             if($dogs==null || sizeof($dogs)!=1){
                 return null;
@@ -80,12 +83,13 @@ require("./Models/Dog.php");
             
             $result->Id=intval($dbItem[0]);
             $result->Name=$dbItem[1];
-            $result->Birth=\DateTime::createFromFormat("Y-m-d",$dbItem[2],new \DateTimeZone('UTC'));
+            $result->Birth= $dbItem[2]!=null? \DateTime::createFromFormat("Y-m-d",$dbItem[2],new \DateTimeZone('UTC')):null;
             $result->Male=boolval($dbItem[3]);
             $result->Chipnumber=$dbItem[4];
             $result->FormvalueId=intval($dbItem[5]);
             $result->Booknumber=$dbItem[6];
             $result->Breedable=boolval($dbItem[7]);
+            $result->LastName=$dbItem[9];
 
             return $result;
         }

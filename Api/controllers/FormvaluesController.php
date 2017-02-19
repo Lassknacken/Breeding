@@ -11,9 +11,10 @@ namespace Controller{
             $this->formvaluesLogic= new \BusinessLayer\formvaluesLogic();
         }
 
-        public function get(){
+        public function get($page,$size){
 
-            $test= $this->formvaluesLogic->get();
+            $test= $this->formvaluesLogic->get($page,$size);
+
             return $test;
         }
 

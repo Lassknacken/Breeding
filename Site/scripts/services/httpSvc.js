@@ -28,7 +28,9 @@ ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
     }
 
     //General Stuff
-    _self.get=function(url,createMethod){
+    _self.get=function(url,createMethod,paging){
+        url= _self.applyPaging(url,paging);
+
         console.log(url);
         return $http.get(url).then(function(response){
             if(!createMethod){
@@ -67,5 +69,28 @@ ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
                 return createMethod(response.data);
             }
         });
+    }
+
+    _self.applyPaging=function(url,paging){
+        if(!paging){
+            return url;
+        }
+
+        if(paging.page){
+            if(url.indexOf("?")>=0){
+                url +="&page="+paging.page
+            }else{
+                url +="?page="+paging.page
+            }
+        }
+
+        if(paging.size){
+            if(url.indexOf("?")>=0){
+                url +="&size="+paging.size
+            }else{
+                url +="?size="+paging.size
+            }
+        }
+        return url;
     }
 };

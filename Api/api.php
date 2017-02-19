@@ -4,7 +4,13 @@ $method =$_SERVER['REQUEST_METHOD'];
 $controllername =explode(basename(__FILE__),$_SERVER['REQUEST_URI']);
 $controllername =explode("?",$controllername[1]);
 $requireString="./controllers{$controllername[0]}Controller.php";
-require($requireString);
+
+if (!file_exists($requireString)){
+    header("HTTP/1.1 500 Internal Server Error");
+    throw new Exception ($controllername[0].'Controller does not exist');
+}else{
+  require($requireString);
+}
 
 //create controller instance
 $controller=new \Controller\controller();
@@ -14,7 +20,7 @@ switch ($method) {
         try{
             $result;
 
-            //dogscontroller?id=12
+            //e.g.controller?id=12
             if(isset($_GET["id"])){
                 $id=$_GET["id"];
 
@@ -26,8 +32,21 @@ switch ($method) {
                     $result=$controller->getId($id,false);
                 }                
             }else{
-                //dogscontroller/
-                $result=$controller->get();
+                //e.g.controller/
+                $page=0;
+                $size=0;
+
+                if(isset($_GET["page"]))
+                {
+                    $page=intval($_GET["page"]);
+                }
+
+                if(isset($_GET["size"]))
+                {
+                    $size=intval($_GET["size"]);
+                }
+
+                $result=$controller->get($page,$size);
             }
             $resultJson= json_encode($result,JSON_UNESCAPED_UNICODE);
 

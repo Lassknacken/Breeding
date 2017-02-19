@@ -37,18 +37,22 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th ng-repeat="col in list_controller.config.table.columns">{{col.name}}</th>
+                                    <th ng-repeat="col in listController.config.table.columns">{{col.name}}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr ng-repeat="item in list_controller.items">
-                                    <td ng-repeat="col in list_controller.config.table.columns">
+                                <tr ng-repeat="item in listController.items">
+                                    <td ng-repeat="col in listController.config.table.columns">
                                         <cell val="item" template="col"></cell>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div class="col-xs-12">
+                    <button class="btn btn-default" ng-click="listController.prevPage()">prev</button>
+                    <button class="btn btn-default" ng-click="listController.nextPage()">next</button>
                 </div>
             </div>
             <div class="row">

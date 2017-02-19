@@ -5,7 +5,8 @@ rem php artisan serv --host 192.168.178.26 --port 8000
 
 start "api" php_site.bat
 rem start "npm" _npm.bat
-start "code" code ./
+start "codeJS" code ./Site
+start "codePHP" code ./Api
 
-start "chrome" "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" http://localhost:8001/ --remote-debugging-port=9222 
+start "chrome" "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" http://localhost:8001/site --remote-debugging-port=9222 
 exit

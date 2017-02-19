@@ -11,9 +11,9 @@ namespace Controller{
             $this->dogsLogic= new \BusinessLayer\dogsLogic();
         }
 
-        public function get(){
+        public function get($page,$size){
 
-            $test= $this->dogsLogic->get();
+            $test= $this->dogsLogic->get($page,$size);
             return $test;
         }
 

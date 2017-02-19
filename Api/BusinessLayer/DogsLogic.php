@@ -19,9 +19,9 @@ namespace BusinessLayer{
             $this->dalDogs=new \DataAccessLayer\dogs();
         }
 
-        public function get()
+        public function get($page,$size)
         {
-            $dogs=$this->dalDogs->get();
+            $dogs=$this->dalDogs->get($page,$size);
 
             return $dogs;
         }

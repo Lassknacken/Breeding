@@ -3,7 +3,7 @@ namespace Controller{
 
     interface iController{
 
-        public function get();
+        public function get($page,$size);
 
         public function getId($id,$full);
         

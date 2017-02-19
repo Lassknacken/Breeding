@@ -3,9 +3,9 @@ ngServices["dog_service"]=function($rootScope,httpSvc,objectSvc,formvalue_servic
     let _self=this;
 
     //Dogs
-    _self.getDogs=function(){
+    _self.getDogs=function(paging){
         return httpSvc.get(
-            httpSvc.apiBaseUrl+"/dogs", _self.createDogs);
+            httpSvc.apiBaseUrl+"/dogs", _self.createDogs,paging);
     };
     _self.getDog=function(id,full){
         if(!id){
@@ -46,7 +46,8 @@ ngServices["dog_service"]=function($rootScope,httpSvc,objectSvc,formvalue_servic
 
         result.id=data.Id;
         result.name=data.Name;
-        result.birth=new Date(data.Birth.date);
+        result.lastName=data.LastName;
+        result.birth= data.Birth!=undefined? new Date(data.Birth.date):undefined;
         result.male=data.Male;
         result.chipnumber=data.Chipnumber;
         result.booknumber=data.Booknumber;
@@ -57,6 +58,6 @@ ngServices["dog_service"]=function($rootScope,httpSvc,objectSvc,formvalue_servic
         result.formvalue=formvalue_service.createFormvalue(data.Formvalue);
         result.exams=exam_service.createExams(data.Exams);
 
-        return result;
+        return result;  	
     }
 };

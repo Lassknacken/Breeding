@@ -6,8 +6,18 @@ namespace DataAccessLayer{
         private $connection;
 
 
-        public function query($sql){
+        public function query($sql, $page=0, $size=0){
             
+            if($page==0)
+            {
+                $page=1;
+            }
+            $page=($page-1)*$size;
+
+            if($size!=0){
+                $sql .=" limit {$page},{$size}";
+            }
+
             try{
                 $this->open();
 

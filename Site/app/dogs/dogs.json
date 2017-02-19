@@ -1,11 +1,20 @@
 {
     "table":{
         "source":"getDogs",
+        "paging":{
+            "page":1,
+            "size":20
+        },
         "columns":[
             {
                 "name":"name",
                 "type":"default",
                 "property":"name"
+            },
+            {
+                "name":"Nachname",
+                "type":"default",
+                "property":"lastName"
             },
             {
                 "name":"Geburtsdatum",
