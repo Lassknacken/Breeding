@@ -80,14 +80,7 @@ create table Breeding.dogs_exams(
 );
 
 #7
-drop table if exists Breeding.breeders;
-create table Breeding.breeders(
-	id int not null AUTO_INCREMENT,
-	name varchar(100) null,
-	familyname varchar(100) not null,
-	
-	primary key (id)
-);
+
 
 #8
 drop table if exists Breeding.kennels;
@@ -112,14 +105,14 @@ create table Breeding.dogs_kennels(
 );
 
 #10
-drop table if exists Breeding.breeders_kennels;
-create table Breeding.breeders_kennels(
+drop table if exists Breeding.users_kennels;
+create table Breeding.users_kennels(
     id int not null AUTO_INCREMENT,
-    breeder_id int not null,
+    user_id int not null,
     kennel_id int not null,
 
 	primary key (id),
-	foreign key (breeder_id) references Breeding.breeders(id),
+	foreign key (user_id) references Breeding.users(id),
    foreign key (kennel_id) references Breeding.kennels(id)
 );
 
