@@ -35,6 +35,16 @@ require("./Models/Dog.php");
             return $result;
         }
 
+
+        public function getByKennel($id){
+
+            $models= $this->getModelsByKennel($id);
+
+            $result =$this->transformAll($models);
+
+            return $result;
+        }
+
         public function create($dog)
         {
 
@@ -68,6 +78,20 @@ require("./Models/Dog.php");
             }
 
             return $dogs[0];
+        }
+
+        private function getModelsByKennel($id){
+            if(!is_int($id)){
+                return null;
+            }
+
+            $dogs= $this->sql->query("select * from v_dogs_kennels where kennel_id={$id}");
+
+            if($dogs==null || sizeof($dogs)==0){
+                return null;
+            }
+
+            return $dogs;
         }
 
         private function transformAll($dogs){

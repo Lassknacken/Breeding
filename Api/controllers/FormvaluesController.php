@@ -1,6 +1,6 @@
 <?php
 namespace Controller{
-    require("BaseController.php");
+    require("IController.php");
     require('./BusinessLayer/FormvaluesLogic.php');
       
     class controller implements iController{
@@ -29,7 +29,7 @@ namespace Controller{
                 }
 
 
-            return $this->formvaluesLogic->getDog($id);
+            return $this->formvaluesLogic->getId($id);
         }
 
         public function post($formvalue){

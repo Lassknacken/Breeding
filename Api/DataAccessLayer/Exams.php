@@ -12,11 +12,11 @@ require("./Models/Exam.php");
             $this->sql= new sql();
         }
 
-        public function get()
+        public function get($page,$size)
         {    
 
             try{
-                $exams= $this->getModels();
+                $exams= $this->getModels($page,$size);
 
                 $result=$this->transformAll($exams);
                 return $result;
@@ -55,8 +55,9 @@ require("./Models/Exam.php");
 
         //=====
 
-        private function getModels(){
-            $exams= $this->sql->query("select * from exams");
+        private function getModels($page,$size){
+             $query="select * from exams";
+            $exams= $this->sql->query($query,$page,$size);
             
             return $exams;
         }

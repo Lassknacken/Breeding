@@ -1,19 +1,20 @@
 <?php
 namespace Controller{
     require("IController.php");
-    require('./BusinessLayer/DogsLogic.php');
-
+    require('./BusinessLayer/KennelsLogic.php');
+      
     class controller implements iController{
 
-        private $dogsLogic;
+        private $logic;
 
         function __construct(){
-            $this->dogsLogic= new \BusinessLayer\dogsLogic();
+            $this->logic= new \BusinessLayer\kennelsLogic();
         }
 
         public function get($page,$size){
 
-            $test= $this->dogsLogic->get($page,$size);
+            $test= $this->logic->get($page,$size);
+
             return $test;
         }
 
@@ -28,21 +29,20 @@ namespace Controller{
             }
 
             if($full){
-                return $this->dogsLogic->getFullId($id);
+                return $this->logic->getFullId($id);
             }
 
-            return $this->dogsLogic->getId($id);
+            return $this->logic->getId($id);
         }
 
-        public function post($dog){
-            return $this->dogsLogic->createDog($dog);
+        public function post($kennel){
+            // return $this->logic->createFormvalue($formvalue);
         }
 
-        public function put($id,$dog){
-            return $this->dogsLogic->updateDog($dog);
+        public function put($id,$kennel){
+            // return $this->logic->updateFormvalue($formvalue);
         }
 
     }
 }
-
 ?>

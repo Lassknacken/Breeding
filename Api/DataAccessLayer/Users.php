@@ -1,24 +1,24 @@
 <?php
 namespace DataAccessLayer{
 require_once("Sql.php");
-require("./Models/Formvalue.php");
+require("./Models/User.php");
 
-    class formvalues{
+    class users{
 
         private $sql;
 
         function __construct()
         {
-                $this->sql= new sql();
+            $this->sql= new sql();
         }
 
         public function get($page,$size)
         {    
 
             try{
-                $models= $this->getModels($page,$size);
+                $users= $this->getModels($page,$size);
 
-                $result=$this->transformAll($models);
+                $result=$this->transformAll($users);
                 return $result;
             }
             catch(exception $ex){
@@ -35,12 +35,12 @@ require("./Models/Formvalue.php");
             return $result;
         }
 
-        public function create($model)
+        public function create($item)
         {
 
         }
 
-        public function update($id,$model)
+        public function update($id,$item)
         {
             
         }
@@ -48,11 +48,10 @@ require("./Models/Formvalue.php");
         //=====
 
         private function getModels($page,$size){
-            $query="select * from formvalues";
-          
-            $models= $this->sql->query($query,$page,$size);
-
-            return $models;
+            $query="select * from users";
+            $users= $this->sql->query($query,$page,$size);
+            
+            return $users;
         }
 
         private function getModel($id){
@@ -60,14 +59,15 @@ require("./Models/Formvalue.php");
                 return null;
             }
 
-            $models= $this->sql->query("select * from formvalues where id={$id}");
+            $users= $this->sql->query("select * from users where id={$id}");
 
-            if($models==null || sizeof($models)!=1){
+            if($users==null || sizeof($users)!=1){
                 return null;
             }
 
-            return $models[0];
+            return $users[0];
         }
+
 
         private function transformAll($items){
             $result=array();
@@ -78,15 +78,18 @@ require("./Models/Formvalue.php");
         }
 
         private function transform($dbItem){
-            $result=new \models\formvalue();
+            $result=new \models\user();
             
             $result->Id=intval($dbItem[0]);
-            $result->Name=$dbItem[1];
+            $result->Username=$dbItem[1];
+            //password[2]
+            $result->Email=$dbItem[3];
+            $result->Name=$dbItem[4];
+            $result->FamilyName=$dbItem[5];
 
             return $result;
         }
 
     }
 }
-
 ?>

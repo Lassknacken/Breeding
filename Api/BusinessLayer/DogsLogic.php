@@ -39,7 +39,12 @@ namespace BusinessLayer{
             $dog->Exams=$this->blExams->getByDog($dog->Id);
 
             return $dog;
-            
+        }
+
+        public function getByKennel($id){
+            $result=$this->dalDogs->getByKennel($id);
+
+            return $result;
         }
     }
 }

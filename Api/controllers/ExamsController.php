@@ -1,6 +1,6 @@
 <?php
 namespace Controller{
-    require("BaseController.php");
+    require("IController.php");
     require('./BusinessLayer/ExamsLogic.php');
 
     class controller implements iController{
@@ -11,21 +11,21 @@ namespace Controller{
             $this->examsLogic= new \BusinessLayer\ExamsLogic();
         }
 
-        public function get(){
+        public function get($page,$size){
 
-            $test= $this->examsLogic->get();
+            $test= $this->examsLogic->get($page,$size);
             return $test;
         }
 
         public function getId($id,$full){
                 
-                if(is_string($id)){
-                    $id=intval($id);
-                }
-                
-                if(!is_int($id)){
-                    return null;
-                }
+            if(is_string($id)){
+                $id=intval($id);
+            }
+            
+            if(!is_int($id)){
+                return null;
+            }
 
             if($full){
                 return $this->examsLogic->getFullId($id);

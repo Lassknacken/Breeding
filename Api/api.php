@@ -3,7 +3,7 @@ $method =$_SERVER['REQUEST_METHOD'];
 //extract controller FileName to require
 $controllername =explode(basename(__FILE__),$_SERVER['REQUEST_URI']);
 $controllername =explode("?",$controllername[1]);
-$requireString="./controllers{$controllername[0]}Controller.php";
+$requireString="./Controllers{$controllername[0]}Controller.php";
 
 if (!file_exists($requireString)){
     header("HTTP/1.1 500 Internal Server Error");
