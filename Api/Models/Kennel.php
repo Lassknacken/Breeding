@@ -1,5 +1,5 @@
 <?php
-namespace Models{
+
     class kennel{
         public $Id;
         public $Name;
@@ -7,5 +7,5 @@ namespace Models{
 
         public $Dogs;
     }
-}
+
 ?>

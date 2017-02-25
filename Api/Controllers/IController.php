@@ -1,6 +1,4 @@
 <?php
-namespace Controller{
-
     interface iController{
 
         public function get($page,$size);
@@ -11,5 +9,4 @@ namespace Controller{
 
         public function post($item);
     }
-}
 ?>

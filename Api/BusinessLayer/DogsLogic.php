@@ -1,5 +1,4 @@
 <?php
-namespace BusinessLayer{
     require ('FormvaluesLogic.php');
     require ('ExamsLogic.php');
     require('./DataAccessLayer/Dogs.php');
@@ -16,7 +15,7 @@ namespace BusinessLayer{
             $this->blFormvalues= new formvaluesLogic();
             $this->blExams= new examsLogic();
             
-            $this->dalDogs=new \DataAccessLayer\dogs();
+            $this->dalDogs=new dogs();
         }
 
         public function get($page,$size)
@@ -47,5 +46,4 @@ namespace BusinessLayer{
             return $result;
         }
     }
-}
 ?>

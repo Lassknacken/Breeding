@@ -1,5 +1,4 @@
 <?php
-namespace DataAccessLayer{
 require_once("Sql.php");
 require("./Models/Formvalue.php");
 
@@ -50,7 +49,7 @@ require("./Models/Formvalue.php");
         private function getModels($page,$size){
             $query="select * from formvalues";
           
-            $models= $this->sql->query($query,$page,$size);
+            $models= $this->sql->queryPaged($query,$page,$size);
 
             return $models;
         }
@@ -78,7 +77,7 @@ require("./Models/Formvalue.php");
         }
 
         private function transform($dbItem){
-            $result=new \models\formvalue();
+            $result=new formvalue();
             
             $result->Id=intval($dbItem[0]);
             $result->Name=$dbItem[1];
@@ -87,6 +86,4 @@ require("./Models/Formvalue.php");
         }
 
     }
-}
-
 ?>

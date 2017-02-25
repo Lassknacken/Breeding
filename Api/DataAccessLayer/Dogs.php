@@ -1,5 +1,4 @@
 <?php
-namespace DataAccessLayer{
 require_once("Sql.php");
 require("./Models/Dog.php");
 
@@ -61,7 +60,7 @@ require("./Models/Dog.php");
         {
             $query="select * from v_dogs_kennels";
 
-            $dogs= $this->sql->query($query,$page,$size);
+            $dogs= $this->sql->queryPaged($query,$page,$size);
             
             return $dogs;
         }
@@ -103,7 +102,7 @@ require("./Models/Dog.php");
         }
 
         private function transform($dbItem){
-            $result=new \models\dog();
+            $result=new dog();
             
             $result->Id=intval($dbItem[0]);
             $result->Name=$dbItem[1];
@@ -119,6 +118,5 @@ require("./Models/Dog.php");
         }
 
     }
-}
 
 ?>

@@ -4,7 +4,6 @@ rem cd C:\Users\Benjamin\Documents\GitHub\survcam
 rem php artisan serv --host 192.168.178.26 --port 8000
 
 start "api" php_site.bat
-rem start "npm" _npm.bat
 start "codeJS" code ./Site
 start "codePHP" code ./Api
 

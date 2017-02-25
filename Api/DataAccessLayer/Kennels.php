@@ -1,5 +1,4 @@
 <?php
-namespace DataAccessLayer{
 require_once("Sql.php");
 require("./Models/Kennel.php");
 
@@ -59,7 +58,7 @@ require("./Models/Kennel.php");
         {
             $query="select * from kennels";
 
-            $kennels= $this->sql->query($query,$page,$size);
+            $kennels= $this->sql->queryPaged($query,$page,$size);
             
             return $kennels;
         }
@@ -101,7 +100,7 @@ require("./Models/Kennel.php");
         }
 
         private function transform($dbItem){
-            $result=new \models\kennel();
+            $result=new kennel();
             
             $result->Id=intval($dbItem[0]);
             $result->Name=$dbItem[1];
@@ -118,6 +117,5 @@ require("./Models/Kennel.php");
         }
 
     }
-}
 
 ?>

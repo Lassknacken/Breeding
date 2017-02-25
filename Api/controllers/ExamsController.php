@@ -1,5 +1,4 @@
 <?php
-namespace Controller{
     require("IController.php");
     require('./BusinessLayer/ExamsLogic.php');
 
@@ -8,7 +7,7 @@ namespace Controller{
         private $examsLogic;
 
         function __construct(){
-            $this->examsLogic= new \BusinessLayer\ExamsLogic();
+            $this->examsLogic= new ExamsLogic();
         }
 
         public function get($page,$size){
@@ -43,6 +42,5 @@ namespace Controller{
         }
 
     }
-}
 
 ?>

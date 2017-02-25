@@ -1,5 +1,4 @@
 <?php
-namespace DataAccessLayer{
 require_once("Sql.php");
 require("./Models/Exam.php");
 
@@ -57,7 +56,7 @@ require("./Models/Exam.php");
 
         private function getModels($page,$size){
              $query="select * from exams";
-            $exams= $this->sql->query($query,$page,$size);
+            $exams= $this->sql->queryPaged($query,$page,$size);
             
             return $exams;
         }
@@ -96,7 +95,7 @@ require("./Models/Exam.php");
         }
 
         private function transform($dbItem){
-            $result=new \models\exam();
+            $result=new exam();
             
             $result->Id=intval($dbItem[0]);
             $result->Name=$dbItem[1];
@@ -105,6 +104,5 @@ require("./Models/Exam.php");
         }
 
     }
-}
 
 ?>

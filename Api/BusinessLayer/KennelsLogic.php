@@ -1,7 +1,4 @@
 <?php
-namespace BusinessLayer{
-    // require ('FormvaluesLogic.php');
-    // require ('ExamsLogic.php');
     require('./DataAccessLayer/Kennels.php');
     require('DogsLogic.php');
 
@@ -12,9 +9,9 @@ namespace BusinessLayer{
         private $blDogs;
 
         function __construct(){
-            $this->dal=new \DataAccessLayer\kennels();
+            $this->dal=new kennels();
             
-            $this->blDogs= new \BusinessLayer\dogsLogic();
+            $this->blDogs= new dogsLogic();
         }
 
         public function get($page,$size)
@@ -45,5 +42,4 @@ namespace BusinessLayer{
             return $result;
         }
     }
-}
 ?>

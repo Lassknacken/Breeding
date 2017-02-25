@@ -1,5 +1,4 @@
 <?php
-namespace Controller{
     require("IController.php");
     require('./BusinessLayer/KennelsLogic.php');
       
@@ -8,7 +7,7 @@ namespace Controller{
         private $logic;
 
         function __construct(){
-            $this->logic= new \BusinessLayer\kennelsLogic();
+            $this->logic= new kennelsLogic();
         }
 
         public function get($page,$size){
@@ -44,5 +43,4 @@ namespace Controller{
         }
 
     }
-}
 ?>

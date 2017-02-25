@@ -1,5 +1,4 @@
 <?php
-namespace BusinessLayer{
     require('./DataAccessLayer/Formvalues.php');
 
 
@@ -8,7 +7,7 @@ namespace BusinessLayer{
         private $dal;
 
         function __construct(){
-            $this->dal=new \DataAccessLayer\formvalues();
+            $this->dal=new formvalues();
         }
 
         public function get($page,$size)
@@ -24,5 +23,4 @@ namespace BusinessLayer{
             return $formvalue;
         }
     }
-}
 ?>

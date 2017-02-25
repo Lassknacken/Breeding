@@ -24,7 +24,7 @@ ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
 
     //=====Session Handling
     _self.login=function(credentials){
-        return _self.post(_self.apiBaseUrl+"",credentials);
+        return _self.post(_self.apiBaseUrl+"/login",credentials);
     }
 
     //General Stuff

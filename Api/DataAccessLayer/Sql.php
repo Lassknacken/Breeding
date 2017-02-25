@@ -1,49 +1,28 @@
 <?php
-namespace DataAccessLayer{   
     class sql
     {
 
         private $connection;
 
+        public function query($sql){
 
-        public function query($sql, $page=0, $size=0){
-            
-            if($page==0)
-            {
-                $page=1;
-            }
-            $page=($page-1)*$size;
-
-            if($size!=0){
-                $sql .=" limit {$page},{$size}";
-            }
-
-            try{
-                $this->open();
-
-                $result=array();
-
-                if ($rows = $this->connection->query($sql)) {
-                    
-                    $first_row = true;
-                    while ($row = mysqli_fetch_row($rows)) {
-                        if ($first_row) $first_row = false;
-                        
-                        array_push($result,$row);
-
-                    }
-
-                    return $result;
-                }
-
-            }catch(exception $ex){
-
-            }finally{
-                $this->close();
-            }
+            return $this->runQuery($sql);
 
         }
 
+        public function queryPaged($sql, $page,$size){
+            if($pag==0)
+            {
+                $pag=1;
+            }
+            $pag=($pag-1)*$size;
+
+            if($size!=0){
+                $sql .=" limit {$pag},{$size}";
+            }
+        }
+
+        //=====
         private function open()
         {
             $servername = "192.168.178.23";
@@ -71,6 +50,37 @@ namespace DataAccessLayer{
         private function close(){
             $this->connection->close();
         }
+
+        private function runQuery($sql){
+            try{
+                $this->open();
+
+                $result=array();
+
+                if ($rows = $this->connection->query($sql)) {
+                    
+
+                    if(is_bool($rows)){
+                        return $rows;
+                    }
+
+                    $first_row = true;
+                    while ($row = mysqli_fetch_row($rows)) {
+                        if ($first_row) $first_row = false;
+                        
+                        array_push($result,$row);
+                    }
+
+                    return $result;
+                }
+
+            }catch(exception $ex){
+
+            }finally{
+                // $this->close();
+                $this->connection->close();
+            }
+        }
+
     }
-}
 ?>

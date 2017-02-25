@@ -1,5 +1,5 @@
 <?php
-namespace Models{
+
     class user{
         public $Id;
         public $Username;
@@ -10,5 +10,5 @@ namespace Models{
 
         public $Kennels;
     }
-}
+
 ?>

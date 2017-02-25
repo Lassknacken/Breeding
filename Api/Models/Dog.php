@@ -1,5 +1,4 @@
 <?php
-namespace Models{
     class dog{
         public $Id;
         public $Name;
@@ -14,5 +13,4 @@ namespace Models{
         public $Formvalue;
         public $Exams;
     }
-}
 ?>

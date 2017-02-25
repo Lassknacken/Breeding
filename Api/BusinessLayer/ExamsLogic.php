@@ -1,5 +1,4 @@
 <?php
-namespace BusinessLayer{
     require('./DataAccessLayer/Exams.php');
 
 
@@ -8,7 +7,7 @@ namespace BusinessLayer{
         private $dal;
 
         function __construct(){
-            $this->dal=new \DataAccessLayer\exams();
+            $this->dal=new exams();
         }
 
         public function get()
@@ -30,5 +29,4 @@ namespace BusinessLayer{
             return $result;
         }
     }
-}
 ?>

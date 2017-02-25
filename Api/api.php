@@ -13,14 +13,13 @@ if (!file_exists($requireString)){
 }
 
 //create controller instance
-$controller=new \Controller\controller();
+$controller=new controller();
 
 switch ($method) {
     case 'GET':{
         try{
             $result;
 
-            //e.g.controller?id=12
             if(isset($_GET["id"])){
                 $id=$_GET["id"];
 
@@ -63,11 +62,16 @@ switch ($method) {
     }
     case 'POST':{
         try{
+            $post=json_decode(file_get_contents('php://input'), true);
+            
             $result;
 
-            if($_POST){
+            if(isset($post)){
+                $result = $controller->post($post);
             }else{
-            }            
+
+            }           
+
             echo json_encode($result);
         }
         catch(exception $ex)

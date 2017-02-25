@@ -30,6 +30,7 @@ create table Breeding.users(
 	email varchar(100) not null,
     name varchar(100),
     familyname varchar(100),
+	session varchar(200),
 
 	primary key (id),
 	UNIQUE (username),

@@ -2,11 +2,9 @@ ngControllers["authCtrl"]=function($location, httpSvc){
     var _self=this;
     
     _self.ctor=function(){
-        console.log("test");
     };
 
     _self.login=function(target){
-        console.log("test2");
         httpSvc.login(_self.credentials).then(function(response){
             httpSvc.csrf=response;
             if(httpSvc.csrf){
@@ -17,12 +15,12 @@ ngControllers["authCtrl"]=function($location, httpSvc){
 
                 $location.path(target);
             }
+            
         })
+        // document.getElementById('myModalClose').click();
+        // $location.path(target);
 
     };
-    _self.test=function(){
-        console.log("test3");
-    }
 
     _self.ctor();
 

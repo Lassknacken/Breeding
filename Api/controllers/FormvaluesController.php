@@ -1,5 +1,4 @@
 <?php
-namespace Controller{
     require("IController.php");
     require('./BusinessLayer/FormvaluesLogic.php');
       
@@ -8,7 +7,7 @@ namespace Controller{
         private $formvaluesLogic;
 
         function __construct(){
-            $this->formvaluesLogic= new \BusinessLayer\formvaluesLogic();
+            $this->formvaluesLogic= new formvaluesLogic();
         }
 
         public function get($page,$size){
@@ -41,5 +40,4 @@ namespace Controller{
         }
 
     }
-}
 ?>
