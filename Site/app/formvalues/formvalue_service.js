@@ -41,5 +41,4 @@ ngServices["formvalue_service"]=function($rootScope,httpSvc, objectSvc){
         return result;
     };
 
-
 };

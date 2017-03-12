@@ -4,8 +4,7 @@ ngServices["dog_service"]=function($rootScope,httpSvc,objectSvc,formvalue_servic
 
     //Dogs
     _self.getDogs=function(paging){
-        return httpSvc.get(
-            httpSvc.apiBaseUrl+"/dogs", _self.createDogs,paging);
+        return httpSvc.get(httpSvc.apiBaseUrl+"/dogs", _self.createDogs,paging);
     };
     _self.getDog=function(id,full){
         if(!id){

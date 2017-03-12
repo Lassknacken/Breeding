@@ -1,0 +1,16 @@
+<div ng-init="init(configname)">
+    <table class="table">
+        <thead>
+            <tr>
+                <th ng-repeat="col in template.columns">{{col.name}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in model">
+                <td ng-repeat="col in template.columns">
+                    <cell ng-model="item" template="col"></cell>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,20 @@
+{
+    "columns":[
+        {
+            "name":"ID",
+            "type":"default",
+            "property":"id"
+        },
+        {
+            "name":"Name",
+            "type":"default",
+            "property":"name"
+        },
+        {
+            "name":"Zwinger",
+            "type":"redirect",
+            "target":"kennels/$",
+            "property":"id"
+        }
+    ]
+}

@@ -1,4 +1,32 @@
 {
+    "columns":[
+            {
+                "name":"name",
+                "type":"default",
+                "property":"name"
+            },
+            {
+                "name":"Nachname",
+                "type":"default",
+                "property":"lastName"
+            },
+            {
+                "name":"Geburtsdatum",
+                "type":"date",
+                "property":"birth"
+            },
+            {
+                "name":"Chipnummer",
+                "type":"default",
+                "property":"chipnumber"
+            },
+            {
+                "name":"Details",
+                "type":"redirect",
+                "target":"#!/dogs/$",
+                "property":"id"
+            }
+        ],
     "table":{
         "source":"getDogs",
         "paging":{
@@ -29,7 +57,7 @@
             {
                 "name":"Details",
                 "type":"redirect",
-                "target":"#!/dogs/$",
+                "target":"dogs/$",
                 "property":"id"
             }
         ]

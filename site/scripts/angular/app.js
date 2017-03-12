@@ -25,7 +25,13 @@ myApp.config(function($routeProvider) {
     }).when("/area", {
         templateUrl : "/site/app/area.htm"
     }).when("/profil", {
-        templateUrl : "/site/app/profil.htm"
+        templateUrl : "/site/app/profile/detail.htm",
+        controller:"profile_controller",
+        controllerAs:"profileCtrl"
+    }).when("/kennels/:id", {
+        templateUrl:"/site/app/kennels/detail.html",
+        controller:"kennelController",
+        controllerAs:"kennelCtrl"
     }).when("/dogs", {
         templateUrl : "/site/app/table/list.htm",
         controller:"dogs_controller",

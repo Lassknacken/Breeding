@@ -50,14 +50,14 @@ ngControllers["dogs_controller"]=function($location, $scope, httpSvc, dog_servic
         _self.loadItems();
     };
 
-    $scope.$on('unauthorized', function(event, args) {
+    // $scope.$on('unauthorized', function(event, args) {
 
-        console.log("unauthorized");
-        httpSvc.cameFrom=$location.path();
-        $location.path("/");
-        document.getElementById('myModalOpen').click();
-    // do what you want to do
-    });
+    //     console.log("unauthorized");
+    //     httpSvc.cameFrom=$location.path();
+    //     $location.path("/");
+    //     document.getElementById('myModalOpen').click();
+    // // do what you want to do
+    // });
 
 
     _self.ctor();

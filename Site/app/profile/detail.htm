@@ -51,11 +51,11 @@
             <div class="col-xs-12 col-md-4">
                 <div class="form-group">
                     <label for="exampleInputFirstName">Vorname</label>
-                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Max" >
+                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Max" ng-model="profileCtrl.profile.name">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName">Name</label>
-                    <input type="text" class="form-control" id="exampleInputName" placeholder="Mustermann" >
+                    <input type="text" class="form-control" id="exampleInputName" placeholder="Mustermann" ng-model="profileCtrl.profile.familyname">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputBirthday">Geburtsdatum</label>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail">E-mail</label>
-                    <input type="text" class="form-control" id="exampleInputEmail">
+                    <input type="email" class="form-control" id="exampleInputEmail" ng-model="profileCtrl.profile.email">
                 </div>
             </div>
             
@@ -90,41 +90,17 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12 col-md-4"></div>
-            <div class="col-xs-12 col-md-4">
-                <h4>Angaben zum Züchter</h4>
+            <div class="col-xs-12">
+                <hr/>
             </div>
-            <div class="col-xs-12 col-md-4"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12 col-md-4"></div>
-            <div class="col-xs-12 col-md-4">
-                <div class="form-group">
-                    <label for="exampleInputZüchter">Sind Sie Züchter?</label>
-                    <select class="form-control">
-                        <option>Ja</option>
-                        <option>Nein</option>
-                    </select>
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4"></div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-12 col-md-4"></div>
-            <div class="col-xs-12 col-md-4">
-                <div class="form-group">
-                    <label for="exampleInputName">Name des Zwingers</label>
-                    <input type="text" class="form-control" id="exampleInputName">
-                </div>
-            </div>
-            <div class="col-xs-12 col-md-4"></div>
         </div>
 
         <div class="row">
             <div class="col-xs-12">
-                <hr/>
+                <h4>Meine Zwinger</h4>
+            </div>
+            <div class="col-xs-12">
+                <mytable ng-model="profileCtrl.profile.kennels" configname="'kennels'"></mytable>
             </div>
         </div>
 

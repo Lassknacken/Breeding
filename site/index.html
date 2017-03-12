@@ -57,12 +57,12 @@
 						<li><a href="#contact">Kontakt</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right" ng-controller="authCtrl as auth">
-						<li><a href="./">
-							<span class="btn btn-circle fa fa-sign-out"></span> Logout Benutzerkonto</a>
+						<li ng-if="profile">
+							<span class="btn btn-circle fa fa-sign-in"></span>Hallo {{profile.name}}!
 						</li>
-						<li>
+						<li ng-if="!profile">
 							<a data-toggle="modal" data-target="#myModal" id="myModalOpen" type="button">
-								<span class="btn btn-circle fa fa-sign-in"></span> Login Benutzerkonto 
+								<span class="btn btn-circle fa fa-sign-in"></span>Login Benutzerkonto 
 							</a>
 							<div class="modal fade  bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 								<div class="modal-dialog modal-sm" role="document">
@@ -114,6 +114,9 @@
 								</div>
 							</div>
 						</li>
+						<li><a href="./">
+							<span class="btn btn-circle fa fa-sign-out"></span> Logout Benutzerkonto</a>
+						</li>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -157,7 +160,7 @@
 
 		<script type="text/javascript" src="scripts/services/objectSvc.js"></script>
 		<script type="text/javascript" src="scripts/services/httpSvc.js"></script>		
-		<script type="text/javascript" src="scripts/directives/cell.js"></script>
+		<script type="text/javascript" src="app/table/cell.js"></script>
 
 		<script type="text/javascript" src="app/dogs/dog_service.js"></script>
 		<script type="text/javascript" src="app/dogs/dogs_controller.js"></script>
@@ -168,9 +171,19 @@
 
 		<script type="text/javascript" src="app/exams/exam_service.js"></script>
 		<script type="text/javascript" src="app/exams/exam_directive.js"></script>
+
+		<script type="text/javascript" src="app/profile/profile_controller.js"></script>
+		<script type="text/javascript" src="app/profile/profile_service.js"></script>
 		
 		
-		<script type="text/javascript" src="scripts/controllers/authCtrl.js"></script>
+		<script type="text/javascript" src="app/auth/authCtrl.js"></script>
+		<script type="text/javascript" src="app/auth/authService.js"></script>
+
+		<script type="text/javascript" src="app/kennels/kennelController.js" ></script>
+		<script type="text/javascript" src="app/kennels/kennelService.js" ></script>
+
+		<script type="text/javascript" src="app/table/tableDirective.js" ></script>
+		
 
 		<!--<script type="text/javascript" src="app/table/listCtrl.js"></script>-->
 		

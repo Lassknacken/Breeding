@@ -3,7 +3,7 @@
         restrict: "E",
         replace: true,
         scope: {
-            val: "=",
+            val: "=ngModel",
             template: "="
         },
         templateUrl: 'app/table/cell.htm'
