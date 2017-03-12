@@ -5,6 +5,7 @@ CREATE VIEW v_dogs_kennels AS
     dogs.birth as dog_birth,
     dogs.male as dog_male,
     dogs.chipnumber as dog_chipnumber,
+    dogs.formvalue_id as dog_formvalue_id,
     dogs.booknumber as dog_booknumber,
     dogs.breedable as dog_breedable,
     dogs.comment as dog_comment,
@@ -32,3 +33,5 @@ CREATE VIEW v_users_kennels AS
     on users.id =users_kennels.user_id
     left join kennels
     on users_kennels.kennel_id = kennels.id;
+
+    
