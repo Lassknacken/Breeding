@@ -1,6 +1,7 @@
 <?php
     require("IController.php");
-    require('./BusinessLayer/DogsLogic.php');
+    require_once('./BusinessLayer/DogsLogic.php');
+    require_once('./BusinessLayer/AuthLogic.php');
 
     class controller implements iController{
 
@@ -11,6 +12,7 @@
         }
 
         public function get($page,$size){
+            $identity = $this->authLogic->auth();
 
             $test= $this->dogsLogic->get($page,$size);
             return $test;

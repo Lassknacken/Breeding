@@ -1,5 +1,5 @@
 <?php
-    require('./DataAccessLayer/Formvalues.php');
+    require_once('./DataAccessLayer/Formvalues.php');
 
 
     class formvaluesLogic{

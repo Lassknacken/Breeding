@@ -1,5 +1,5 @@
 <?php
-    require('./DataAccessLayer/Exams.php');
+    require_once('./DataAccessLayer/Exams.php');
 
 
     class examsLogic{

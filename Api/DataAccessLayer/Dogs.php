@@ -1,6 +1,6 @@
 <?php
 require_once("Sql.php");
-require("./Models/Dog.php");
+require_once("./Models/Dog.php");
 
     class dogs{
 
@@ -16,6 +16,10 @@ require("./Models/Dog.php");
 
             try{
                 $dogs= $this->getModels($page,$size);
+
+                if(!is_array($dogs) || count($dogs)==0){
+                    return null;
+                }
 
                 $result=$this->transformAll($dogs);
                 return $result;
@@ -70,7 +74,7 @@ require("./Models/Dog.php");
                 return null;
             }
 
-            $dogs= $this->sql->query("select * from v_dogs_kennels where dog_id={$id}");
+            $dogs= $this->sql->query("select * from dogs where id={$id}");
 
             if($dogs==null || sizeof($dogs)!=1){
                 return null;
@@ -112,7 +116,7 @@ require("./Models/Dog.php");
             $result->FormvalueId=intval($dbItem[5]);
             $result->Booknumber=$dbItem[6];
             $result->Breedable=boolval($dbItem[7]);
-            $result->LastName=$dbItem[9];
+            $result->LastName=$dbItem[8];
 
             return $result;
         }

@@ -1,6 +1,6 @@
 <?php
     require("IController.php");
-    require('./BusinessLayer/ExamsLogic.php');
+    require_once('./BusinessLayer/ExamsLogic.php');
 
     class controller implements iController{
 

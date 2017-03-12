@@ -1,54 +1,46 @@
 <?php
     require("IController.php");
-    require('./BusinessLayer/UsersLogic.php');
+    require_once('./BusinessLayer/AuthLogic.php');
       
-    class controller implements iController{
+    class controller /*implements iController*/{
 
-        private $usersLogic;
+        private $authLogic;
 
         function __construct(){
-            $this->usersLogic= new usersLogic();
+            $this->authLogic= new authLogic();
         }
 
         public function get($page,$size){
 
-            // $test= $this->formvaluesLogic->get($page,$size);
+            $user =$this->authLogic->auth(true);
 
-            // return $test;
+             return $user;
         }
 
         public function getId($id,$full){
-                
-                if(is_string($id)){
-                    $id=intval($id);
-                }
-                
-                if(!is_int($id)){
-                    return null;
-                }
+            
+            $user =$this->authLogic->auth();
 
-
-            return null;//$this->formvaluesLogic->getId($id);
+            return $user;
         }
 
         public function post($login){
-            
-            $test = $_COOKIE["BreedCookie"];
 
-            $authorised =$this->usersLogic->authenticate($login["username"],$login["password"]);
+            $authorised =$this->authLogic->authenticate($login["username"],$login["password"]);
 
             if(isset($authorised)){
                 // header("Authorization: {$authorised}");
-                setcookie("BreedCookie", $authorised);
+                setcookie("BreedCookie", $authorised->Session);
+                return $authorised;
             }else{
-                header("HTTP/1.1 401 Unauthorized");
+                throw new AuthException("unauthorized");
             }
            
-            return $login;
+            return;
             // return $this->formvaluesLogic->createFormvalue($formvalue);
         }
 
-        public function put($id,$formvalue){
+        public function put($id,$session){
             // return $this->formvaluesLogic->updateFormvalue($formvalue);
         }
 

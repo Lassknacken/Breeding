@@ -1,6 +1,6 @@
 <?php
-require('./DataAccessLayer/Users.php');
-require('KennelsLogic.php');
+require_once('./DataAccessLayer/Users.php');
+require_once('KennelsLogic.php');
 
 class usersLogic{
 
@@ -20,39 +20,34 @@ class usersLogic{
     }
 
     public function getId($id){
-        $user= $this->dalUsers->getId($id);
+        $user= $this->dalUsers->getById($id);
         
         return $user;
     }
 
     public function getFullId($id){
-        $user= $this->dalUsers->getId($id);
+        $user= $this->dalUsers->getById($id);
 
         $user->Kennels=$this->blKennels->getByUser($user->Id);
         
         return $user;
     }
 
-    public function authenticate($username,$password){
-
-        $user=$this->dalUsers->getByUsername($username);
-
-        $dbPassword = $this->dalUsers->getPassword($user->Id);
-
-        if(!isset($dbPassword)){
-            return false;
-        }
-        
-        $auth=password_verify($password,$dbPassword);
-
-        $session=uniqid();
-
-        $session=password_hash($session,PASSWORD_DEFAULT);
-        if($this->dalUsers->setSession($user->Id,$session)){
-            return $session;
-        }else{
-            return null;
-        }
+    public function getByUsername($username){
+        return $this->dalUsers->getByUsername($username);
     }
+
+    public function getPassword($userId){
+        return $this->dalUsers->getPassword($userId);
+    }
+
+    public function getBySession($session){
+        return $this->dalUsers->getBySession($session);
+    }
+
+    public function setSession($userId,$session){
+        return $this->dalUsers->setSession($userId,$session);
+    }
+
 }
 ?>

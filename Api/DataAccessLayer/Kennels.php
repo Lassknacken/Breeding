@@ -1,6 +1,6 @@
 <?php
 require_once("Sql.php");
-require("./Models/Kennel.php");
+require_once("./Models/Kennel.php");
 
     class kennels{
 

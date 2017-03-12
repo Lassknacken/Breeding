@@ -1,6 +1,6 @@
 <?php
 require_once("Sql.php");
-require("./Models/User.php");
+require_once("./Models/User.php");
 
     class users{
 
@@ -15,13 +15,17 @@ require("./Models/User.php");
         {    
 
             try{
-                $users= $this->getModels($page,$size);
+                $models= $this->getModels($page,$size);
 
-                $result=$this->transformAll($users);
-                return $result;
+                if(is_array($models) && count($models) >0 )
+                {
+                    return $this->transform($models);
+                }
+            
+                return null;
             }
             catch(exception $ex){
-                return $ex;
+                throw $ex;
             }
         }
 
@@ -30,7 +34,8 @@ require("./Models/User.php");
             $model= $this->getModel($id);
 
             if(isset($model)){
-                return $model;
+
+                return $this->transform($model);
             }
             
             return null;
@@ -40,9 +45,24 @@ require("./Models/User.php");
         {
             $model= $this->getModelByUsername($username);
 
-            $result=$this->transform($model);
+            if(isset($model)){
+
+                return $this->transform($model);
+            }
             
-            return $result;
+            return null;
+        }
+
+        public function getBySession($session){
+            $model=$this->getModelBySession($session);
+
+            if(isset($model)){
+
+                return $this->transform($model);
+            }
+            
+            return null;
+            
         }
 
         public function getPassword($id){
@@ -106,7 +126,31 @@ require("./Models/User.php");
             $query="select * from users where username='{$username}';";
 
             $users= $this->sql->query($query,0,0);
-            return $users[0];
+
+            $test= count($users);
+
+            if(count($users)==1){
+                return $users[0];
+            }else{
+                return null;
+            }
+        }
+
+        private function getModelBySession($session){
+
+            if(!isset($session)){
+                return null;
+            }
+
+            $query="select * from users where session='{$session}';";
+
+            $users= $this->sql->query($query,0,0);
+
+            if(count($users)==1){
+                return $users[0];
+            }else{
+                return null;
+            }
         }
 
         private function transformAll($items){
@@ -126,6 +170,7 @@ require("./Models/User.php");
             $result->Email=$dbItem[3];
             $result->Name=$dbItem[4];
             $result->FamilyName=$dbItem[5];
+            $result->Session=$dbItem[6];
 
             return $result;
         }

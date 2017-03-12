@@ -1,6 +1,6 @@
 <?php
     require("IController.php");
-    require('./BusinessLayer/FormvaluesLogic.php');
+    require_once('./BusinessLayer/FormvaluesLogic.php');
       
     class controller implements iController{
 

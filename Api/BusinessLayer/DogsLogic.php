@@ -1,7 +1,7 @@
 <?php
-    require ('FormvaluesLogic.php');
-    require ('ExamsLogic.php');
-    require('./DataAccessLayer/Dogs.php');
+    require_once('FormvaluesLogic.php');
+    require_once('ExamsLogic.php');
+    require_once('./DataAccessLayer/Dogs.php');
     // require('../DataAccessLayer/Formvalues.php');
 
 

@@ -47,11 +47,19 @@ switch ($method) {
 
                 $result=$controller->get($page,$size);
             }
-            $resultJson= json_encode($result,JSON_UNESCAPED_UNICODE);
 
-            $test= json_last_error();
+            if(!isset($result)){
+                return;
+            }
+
+            $resultJson= json_encode($result,JSON_UNESCAPED_UNICODE);
+            // $test= json_last_error();
 
             echo $resultJson;
+        }
+        catch (AuthException $ex){
+            header("HTTP/1.1 401 Unauthorized");
+            // echo json_encode('Exception abgefangen: ',  $ex, "\n");
         }
         catch(exception $ex)
         {
@@ -73,6 +81,10 @@ switch ($method) {
             }           
 
             echo json_encode($result);
+        }
+        catch (AuthException $ex){
+            header("HTTP/1.1 401 Unauthorized");
+            // echo json_encode('Exception abgefangen: ',  $ex, "\n");
         }
         catch(exception $ex)
         {

@@ -1,6 +1,6 @@
 <?php
 require_once("Sql.php");
-require("./Models/Exam.php");
+require_once("./Models/Exam.php");
 
     class exams{
 

@@ -11,15 +11,17 @@
         }
 
         public function queryPaged($sql, $page,$size){
-            if($pag==0)
+            if($page==0)
             {
-                $pag=1;
+                $page=1;
             }
-            $pag=($pag-1)*$size;
+            $page=($page-1)*$size;
 
             if($size!=0){
-                $sql .=" limit {$pag},{$size}";
+                $sql .=" limit {$page},{$size}";
             }
+
+            return $this->runQuery($sql);
         }
 
         //=====

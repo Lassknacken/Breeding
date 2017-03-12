@@ -1,29 +1,39 @@
 <?php
     require("IController.php");
-    require('./BusinessLayer/UsersLogic.php');
+    require_once('./BusinessLayer/UsersLogic.php');
+    require_once('./BusinessLayer/AuthLogic.php');
       
     class controller implements iController{
 
         private $logic;
+        private $authLogic;
 
         function __construct(){
             $this->logic= new usersLogic();
+            $this->authLogic= new authLogic();
         }
 
         public function get($page,$size){
+            $identity = $this->authLogic->auth();
 
-            $test= $this->logic->get($page,$size);
+            $user= $this->logic->getId($identity);
 
-            return $test;
+            return $user;
         }
 
         public function getId($id,$full){
-                
+
             if(is_string($id)){
                 $id=intval($id);
             }
             
             if(!is_int($id)){
+                return null;
+            }
+
+            $identity = $this->authLogic->auth();
+
+            if($identity->Id!=$id){
                 return null;
             }
 

@@ -1,6 +1,6 @@
 <?php
-    require('./DataAccessLayer/Kennels.php');
-    require('DogsLogic.php');
+    require_once('./DataAccessLayer/Kennels.php');
+    require_once('DogsLogic.php');
 
 
     class kennelsLogic{

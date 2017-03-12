@@ -7,5 +7,5 @@ start "api" php_site.bat
 start "codeJS" code ./Site
 start "codePHP" code ./Api
 
-start "chrome" "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" http://localhost:8001/site --remote-debugging-port=9222 
+rem start "chrome" "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" http://localhost:8001/site --remote-debugging-port=9222 
 exit

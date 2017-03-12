@@ -1,6 +1,6 @@
 <?php
     require("IController.php");
-    require('./BusinessLayer/KennelsLogic.php');
+    require_once('./BusinessLayer/KennelsLogic.php');
       
     class controller implements iController{
 
@@ -17,7 +17,7 @@
             return $test;
         }
 
-        public function getId($id,$full){
+        public function getId($id,$full) {
                 
             if(is_string($id)){
                 $id=intval($id);

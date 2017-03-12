@@ -7,6 +7,7 @@
         public $Email;
         public $Name;
         public $FamilyName;
+        public $Session;
 
         public $Kennels;
     }

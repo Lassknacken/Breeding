@@ -1,6 +1,6 @@
 <?php
 require_once("Sql.php");
-require("./Models/Formvalue.php");
+require_once("./Models/Formvalue.php");
 
     class formvalues{
 
@@ -47,7 +47,7 @@ require("./Models/Formvalue.php");
         //=====
 
         private function getModels($page,$size){
-            $query="select * from formvalues";
+            $query="select * from formvalues;";
           
             $models= $this->sql->queryPaged($query,$page,$size);
 
