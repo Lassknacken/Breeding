@@ -193,9 +193,8 @@
             </div>
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-4 text-right">
-                 <a class="btn btn-primary" ng-href="#!/dogs/{{dogCtrl.dog.id}}/edit">
-                    <span class="fa fa-edit"></span> bearbeiten
-                </a>    
+                 <myredirect ng-model="dogCtrl.dog.id" target="'dogs/$/pairing'" title="'verpaaren'" tooltip="'diesen Hund verpaaren'">
+                 </myredirect>
             </div>
         </div>
 

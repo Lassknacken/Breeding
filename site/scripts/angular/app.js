@@ -1,7 +1,7 @@
 (function(){
 'use strict'
 
-var myApp=angular.module('myApp',['ngRoute']);
+var myApp=angular.module('myApp',['ngRoute','ngCookies']);
 
 
 for(var key in ngControllers){
@@ -29,26 +29,27 @@ myApp.config(function($routeProvider) {
         controller:"profile_controller",
         controllerAs:"profileCtrl"
     }).when("/kennels/:id", {
-        templateUrl:"/site/app/kennels/detail.html",
+        templateUrl:"/site/app/kennels/detail.htm",
         controller:"kennelController",
         controllerAs:"kennelCtrl"
     }).when("/dogs", {
-        templateUrl : "/site/app/table/list.htm",
+        templateUrl : "/site/app/dogs/list.htm",
         controller:"dogs_controller",
         controllerAs: "listController"
     }).when("/dogs/:id", {
         templateUrl : "/site/app/dogs/detail.htm",
         controller:"dog_controller",
         controllerAs: "dogCtrl"
+    }).when("/dogs/:id/pairing", {
+        templateUrl : "/site/app/pairing/list.htm",
+        controller:"dogs_controller",
+        controllerAs: "dogsCtrl"
     }).when("/dogs/create", {
         templateUrl : "/site/app/dogs/create.htm",
         controller:"dog_controller",
         controllerAs: "dogCtrl"
-    }).when("/dogs/:id/edit", {
-        templateUrl : "/site/app/dogs/edit.htm",
-        controller:"dog_controller",
-        controllerAs: "dogCtrl"
-    });
+    })
+    ;
 });
 
 myApp.filter('unsafe', ['$sce', function ($sce) {
@@ -61,8 +62,8 @@ myApp.controller('PopoverDemoCtrl', ['$scope',function ($scope) {
   $scope.dynamicPopover = "Hello, <b>World!</b>";
 }]);
 
-angular.module("template/popover/popover.html", []).run(["$templateCache", function ($templateCache) {
-    $templateCache.put("template/popover/popover.html",
+angular.module("template/popover/popover.htm", []).run(["$templateCache", function ($templateCache) {
+    $templateCache.put("template/popover/popover.htm",
       "<div class=\"popover {{placement}}\" ng-class=\"{ in: isOpen(), fade: animation() }\">\n" +
       "  <div class=\"arrow\"></div>\n" +
       "\n" +
@@ -73,6 +74,5 @@ angular.module("template/popover/popover.html", []).run(["$templateCache", funct
       "</div>\n" +
       "");
 }]);
-
 
 })(window.angular)

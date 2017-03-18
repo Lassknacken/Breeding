@@ -34,21 +34,7 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="table-responsive">
-                        <mytable></mytable>
-                        <table class="table" ng-model="" configname="listController.configname">
-                            <thead>
-                                <tr>
-                                    <th ng-repeat="col in listController.config.table.columns">{{col.name}}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr ng-repeat="item in listController.items">
-                                    <td ng-repeat="col in listController.config.table.columns">
-                                        <cell ng-model="item" template="col"></cell>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <mytable ng-model="listController.items" configname="'dogs'"></mytable>
                     </div>
                 </div>
                 <div class="col-xs-12">

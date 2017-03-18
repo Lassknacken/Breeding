@@ -1,0 +1,52 @@
+<ul class="nav navbar-nav navbar-right">
+    <li ng-if="profile">
+        <a>
+            <span class="btn btn-circle fa fa-sign-in"></span>Hallo {{profile.name}}
+        </a>
+    </li>
+    <li ng-if="profile">
+        <a ng-click="logout()">
+            <span class="btn btn-circle fa fa-sign-out"></span> Logout Benutzerkonto
+        </a>
+    </li>
+    <li ng-if="!profile">
+        <a ng-click="toggle(show)" type="button">
+            <span class="btn btn-circle fa fa-sign-in"></span>Login Benutzerkonto
+        </a>
+        <div ng-if="show">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12">
+                    <form class="form-inline">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Username" aria-describedby="username" ng-model="credentials.username">
+                                <span class="input-group-addon" id="username">
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <br>
+
+                        <div class="form-group half-top">
+                            <div class="input-group">
+                                <input type="password" class="form-control" placeholder="Password" aria-describedby="password" ng-model="credentials.password">
+                                <span class="input-group-addon" id="password">
+                                    <i class="fa fa-key"></i>
+                                </span>
+                            </div>
+                        </div>								
+                    </form>
+                </div>
+            </div>
+            <div class="row half-top">
+                <a href="#!/register" class="btn btn-default btn-sm">Registrieren</a>
+                <button type="button" class="btn btn-primary btn-sm" ng-click="login()">Anmelden</button>
+                <div class="col-md-8 col-xs-12">
+                    <a class="font-size-small color-gray">Passwort vergessen</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </li>
+</ul>

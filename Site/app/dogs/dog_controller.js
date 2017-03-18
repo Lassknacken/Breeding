@@ -1,8 +1,15 @@
-ngControllers["dog_controller"]=function($rootScope,$routeParams, dog_service){
+ngControllers["dog_controller"]=function($rootScope,$routeParams,$location, dog_service,authService){
     let _self=this;
 
     _self.ctor=function(){
-        _self.loadDog($routeParams.id,true);
+        if(!$rootScope.profile || !$rootScope.profile.id){
+            authService.cameFrom=$location.path();
+            $rootScope.$emit("unauthorized");
+        }
+
+        if($routeParams.id){
+            _self.loadDog($routeParams.id,true);
+        }
     };
 
     _self.loadDog=function(id,full){

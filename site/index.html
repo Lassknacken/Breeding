@@ -52,72 +52,13 @@
 				</div>
 				<div id="navbar" class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#"><span class="fa fa-home" aria-hidden="true"></span> Home</a></li>
+						<li>
+							<a href="#!/area"><span class="fa fa-home" aria-hidden="true"></span> Home</a>
+						</li>
 						<li><a href="#about">Über uns</a></li>
 						<li><a href="#contact">Kontakt</a></li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right" ng-controller="authCtrl as auth">
-						<li ng-if="profile">
-							<span class="btn btn-circle fa fa-sign-in"></span>Hallo {{profile.name}}!
-						</li>
-						<li ng-if="!profile">
-							<a data-toggle="modal" data-target="#myModal" id="myModalOpen" type="button">
-								<span class="btn btn-circle fa fa-sign-in"></span>Login Benutzerkonto 
-							</a>
-							<div class="modal fade  bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-								<div class="modal-dialog modal-sm" role="document">
-									<div class="modal-content">
-										<div class="modal-header">
-											<button type="button" id="myModalClose" class="close" data-dismiss="modal" aria-label="Close">
-												<span aria-hidden="true">&times;</span>
-											</button>
-											<h4 class="modal-title" id="myModalLabel">Login Benutzerkonto</h4>
-										</div>
-										<div class="modal-body">
-											<div class="container-fluid">
-												<div class="row">
-													<div class="col-xs-12">
-														<form class="form-inline">
-															<div class="form-group">
-																<div class="input-group">
-																	<input type="text" class="form-control" placeholder="Username" aria-describedby="username" ng-model="auth.credentials.username">
-																	<span class="input-group-addon" id="username">
-																		<i class="fa fa-user"></i>
-																	</span>
-																</div>
-															</div>
-															<br>
-
-															<div class="form-group half-top">
-																<div class="input-group">
-																	<input type="password" class="form-control" placeholder="Password" aria-describedby="password" ng-model="auth.credentials.password">
-																	<span class="input-group-addon" id="password">
-																		<i class="fa fa-key"></i>
-																	</span>
-																</div>
-															</div>								
-														</form>
-													</div>
-												</div>
-												<div class="row half-top">
-													<div class="col-xs-12">
-														<a class="font-size-small color-gray">Passwort vergessen</a>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="modal-footer">
-											<a href="#!/register" class="btn btn-default btn-sm">Registrieren</a>
-											<button type="button" class="btn btn-primary btn-sm" ng-click="auth.login('/profil');">Anmelden</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li><a href="./">
-							<span class="btn btn-circle fa fa-sign-out"></span> Logout Benutzerkonto</a>
-						</li>
-					</ul>
+					<auth target="'/area'"></auth>
 				</div><!--/.nav-collapse -->
 			</div>
 		</nav>
@@ -147,8 +88,7 @@
 
 		<!-- Javascript
 		––––––––––––––––––––––––––––––––––––––––––––––––––-->
-		<script type="text/javascript" src="resources/jquery-2.2.0/js/jquery-2.2.0.js"></script>
-		<script type="text/javascript" src="resources/bootstrap-3.3.5-dist/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+		<!--<script type="text/javascript" src="resources/jquery-2.2.0/js/jquery-2.2.0.js"></script>-->
 		
 		<script type="text/javascript">
 		var ngControllers=[];
@@ -157,6 +97,8 @@
 		</script>
 		<script type="text/javascript" src="scripts/angular/angular.min.js"></script>
 		<script type="text/javascript" src="scripts/angular/angular-route.min.js"></script>
+		<script type="text/javascript" src="scripts/angular/angular-cookies.min.js"></script>
+		<script type="text/javascript" src="resources/ui-bootstrap/ui-bootstrap-2.5.0.min.js"></script>
 
 		<script type="text/javascript" src="scripts/services/objectSvc.js"></script>
 		<script type="text/javascript" src="scripts/services/httpSvc.js"></script>		
@@ -176,13 +118,15 @@
 		<script type="text/javascript" src="app/profile/profile_service.js"></script>
 		
 		
-		<script type="text/javascript" src="app/auth/authCtrl.js"></script>
+		<!--<script type="text/javascript" src="app/auth/authCtrl.js"></script>-->
 		<script type="text/javascript" src="app/auth/authService.js"></script>
+		<script type="text/javascript" src="app/auth/authDirective.js"></script>
 
 		<script type="text/javascript" src="app/kennels/kennelController.js" ></script>
 		<script type="text/javascript" src="app/kennels/kennelService.js" ></script>
 
 		<script type="text/javascript" src="app/table/tableDirective.js" ></script>
+		<script type="text/javascript" src="app/table/redirect.js" ></script>
 		
 
 		<!--<script type="text/javascript" src="app/table/listCtrl.js"></script>-->
@@ -191,12 +135,12 @@
 		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-animate.js"></script>-->
 		
 		<script>
-			$("[data-toggle=popover]").popover({
-				html: true, 
-				content: function() {
-					return $('#popover-content').html();
-					}
-			});
+			// $("[data-toggle=popover]").popover({
+			// 	html: true, 
+			// 	content: function() {
+			// 		return $('#popover-content').html();
+			// 		}
+			// });
 		</script>
 	</body>
 </html>

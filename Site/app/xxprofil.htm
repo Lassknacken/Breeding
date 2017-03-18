@@ -1,0 +1,147 @@
+<div class="container bg-color-white" >
+    
+    <form>
+    
+        <div class="row">
+            <div class="col-xs-8">
+                <h3>Mein Kundenprofil</h3>
+            </div>
+            <div class="col-xs-4 text-right">
+                <!--<button type="submit" class="btn btn-primary" ng-click="">
+                    <span class="fa fa-edit"></span> bearbeiten
+                </button>-->
+            </div>
+            <div class="col-xs-12 border-small">
+                <hr/>
+            </div>
+        </div>
+
+        <br/>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4">
+                <div class="profile-image " data-logged-out-action="photo">
+                    <img class="user-image" itemprop="image" width="260" height="260" alt="" src="">
+                    <div class="spinner"></div>
+                    <div class="upload-hover">
+                        <input type="hidden" name="_method" value="PATCH">
+                        <input name="authenticity_token" type="hidden" value="">
+                        <input name="photo" type="file" class="hidden-file-upload" id="input-upload-photo">
+
+                        <i class="icon-upload"></i>
+
+                        <div class="upload-delete data-tooltip-right">
+                            <div class="bar">Profilbild löschen</div>
+                        </div>
+
+                        <div class="file-hint">Profilbild wechseln</div>
+
+                        <div class="file-size">
+                            JPG, BMP, PNG (bis 20 MB)
+                        </div>
+                    </div>
+                    <div class="loading-overlay">
+                        <span class="progress-bar">
+                            <span class="progress"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputFirstName">Vorname</label>
+                    <input type="text" class="form-control" id="exampleInputFirstName" placeholder="Max" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName">Name</label>
+                    <input type="text" class="form-control" id="exampleInputName" placeholder="Mustermann" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputBirthday">Geburtsdatum</label>
+                    <input type="date" class="form-control" id="exampleInputBirthday" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputStreet">Straße, Hausnummer</label>
+                    <input type="text" class="form-control" id="exampleInputStreet">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPlace">PLZ, Ort</label>
+                    <input type="text" class="form-control" id="exampleInputPlace" >
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPhone">Telefonnummer</label>
+                    <input type="text" class="form-control" id="exampleInputPhone">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail">E-mail</label>
+                    <input type="text" class="form-control" id="exampleInputEmail">
+                </div>
+            </div>
+            
+            <div class="col-xs-12 col-md-4 text-right"></div>
+        </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-8">
+                 <hr/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-4">
+                <h4>Angaben zum Züchter</h4>
+            </div>
+            <div class="col-xs-12 col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputZüchter">Sind Sie Züchter?</label>
+                    <select class="form-control">
+                        <option>Ja</option>
+                        <option>Nein</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-4">
+                <div class="form-group">
+                    <label for="exampleInputName">Name des Zwingers</label>
+                    <input type="text" class="form-control" id="exampleInputName">
+                </div>
+            </div>
+            <div class="col-xs-12 col-md-4"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <hr/>
+            </div>
+        </div>
+
+         <div class="row">
+            <div class="col-xs-12 col-md-4">
+                 <a class="btn btn-default" ng-href="#!/area">
+                    zurück
+                </a>
+            </div>
+            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-4">
+                <button class="btn btn-primary right">
+                    <span class="fa fa-save"></span> speichern
+                </button>
+            </div>
+        </div>
+
+    </form>
+
+</div>

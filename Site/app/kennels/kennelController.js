@@ -1,8 +1,9 @@
-ngControllers["kennelController"]=function($rootScope, $routeParams, authService, kennelService){
+ngControllers["kennelController"]=function($rootScope, $routeParams,$location, authService, kennelService){
     let _self=this;
 
     _self.ctor=function(){
         if(!$rootScope.profile || !$rootScope.profile.id){
+            authService.cameFrom=$location.path();
             $rootScope.$emit("unauthorized");
         }
 

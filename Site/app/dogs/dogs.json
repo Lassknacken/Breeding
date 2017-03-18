@@ -23,7 +23,7 @@
             {
                 "name":"Details",
                 "type":"redirect",
-                "target":"#!/dogs/$",
+                "target":"dogs/$",
                 "property":"id"
             }
         ],

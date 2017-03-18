@@ -14,6 +14,6 @@ ngDirectives['mytable']= function (httpSvc) {
             configname:"=configname",
             // template: "="
         },
-        templateUrl: 'app/table/table.html'
+        templateUrl: 'app/table/table.htm'
     };
 };

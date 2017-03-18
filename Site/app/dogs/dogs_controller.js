@@ -1,21 +1,26 @@
-ngControllers["dogs_controller"]=function($location, $scope, httpSvc, dog_service){
+ngControllers["dogs_controller"]=function($location, $rootScope, httpSvc, dog_service,authService){
     let _self=this;
 
 
     _self.ctor=function(){
-        _self.route=$location.path();
-        _self.route=_self.route.split("/");
-        _self.route=_self.route[_self.route.length-1];
-
-        httpSvc.getConfig(_self.route).then(function(response){
-            _self.config=response;
-            _self.paging=_self.config.table.paging;
-            _self.loadItems();
-        });
+        if(!$rootScope.profile || !$rootScope.profile.id){
+            authService.cameFrom=$location.path();
+            $rootScope.$emit("unauthorized");
+            return;
+        }
+        
+        _self.loadItems();
     };
 
 
     _self.loadItems=function(){
+        if(!_self.paging){
+            _self.paging={
+                page:1,
+                size:20,
+            }
+        }
+
         dog_service.getDogs(_self.paging)
             .then(function(result){
                 _self.items=result;
@@ -49,16 +54,6 @@ ngControllers["dogs_controller"]=function($location, $scope, httpSvc, dog_servic
         }
         _self.loadItems();
     };
-
-    // $scope.$on('unauthorized', function(event, args) {
-
-    //     console.log("unauthorized");
-    //     httpSvc.cameFrom=$location.path();
-    //     $location.path("/");
-    //     document.getElementById('myModalOpen').click();
-    // // do what you want to do
-    // });
-
 
     _self.ctor();
 }

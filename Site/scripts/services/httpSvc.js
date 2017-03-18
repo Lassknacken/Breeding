@@ -58,6 +58,16 @@ ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
             }else{
                 return createMethod(response.data);
             }
+        },function(error){
+            if(error && error.status){
+
+                switch(error.status){
+                    case 401:{
+                        $rootScope.$broadcast('unauthorized');
+                        break;
+                    }
+                }                
+            }
         });
     }
 

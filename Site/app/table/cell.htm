@@ -1,6 +1,7 @@
 <div>
     <div ng-if="template.type==='date'">
         <span>{{val[template.property].toLocaleDateString()}}</span>
+        
     </div>
     <div ng-if="template.type==='default'">
         <span>{{val[template.property].toString()}} {{template.suffix}}</span>
@@ -33,9 +34,8 @@
 		</ul>
 	</div>
     <div ng-if="template.type==='redirect'">
-        <a class="btn btn-sm btn-default no-padding-top-bottom" ng-class="template.design.style" ng-href="{{template.target.split('$').join(val[template.property])}}" data-toggle="tooltip" title="{{template.tooltip}}">
-            <span class="icon-detail"></span> {{template.title}} {{template.suffix}}
-        </a>
+        <myredirect ng-model="val[template.property]" design="template.design" target="template.target" title="template.title" suffix="template.suffix" tooltip="template.tooltip">
+        </myredirect>
     </div>
     <div ng-if="template.type==='type'" uib-tooltip="{{template.tooltip}}" tooltip-placement="top" tooltip-class="amistooltip">
         <a ng-class="template.design.style">

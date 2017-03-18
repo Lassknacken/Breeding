@@ -1,8 +1,9 @@
-ngControllers["profile_controller"]=function($rootScope, profile_service,authService){
+ngControllers["profile_controller"]=function($rootScope,$location, profile_service,authService){
     let _self=this;
 
     _self.ctor=function(){
         if(!$rootScope.profile || !$rootScope.profile.id){
+            authService.cameFrom=$location.path();
             $rootScope.$emit("unauthorized");
         }else{
             _self.loadProfile($rootScope.profile.id);
