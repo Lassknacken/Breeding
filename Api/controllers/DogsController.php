@@ -9,10 +9,11 @@
 
         function __construct(){
             $this->dogsLogic= new dogsLogic();
+            $this->authLogic= new authLogic();
         }
 
         public function get($page,$size){
-            $identity = $this->authLogic->auth();
+            // $identity = $this->authLogic->auth();
 
             $test= $this->dogsLogic->get($page,$size);
             return $test;
