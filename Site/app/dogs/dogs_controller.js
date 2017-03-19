@@ -1,4 +1,4 @@
-ngControllers["dogs_controller"]=function($location, $rootScope,$scope, httpSvc, dog_service,authService){
+ngControllers["dogs_controller"]=function($location, $rootScope, $scope, $routeParams, httpSvc, dog_service,authService){
     let _self=this;
 
 
@@ -9,11 +9,22 @@ ngControllers["dogs_controller"]=function($location, $rootScope,$scope, httpSvc,
             return;
         }
         
-        _self.loadItems();
+        if($routeParams.id){
+            dog_service.getDog($routeParams.id,true).then(function(result){
+                $scope.searchobject.male=!result.male;
+                $scope.searchobject.formvalues=[result.formvalue.id];
+                $scope.searchobject.breedable=true;
+            }).then(function(){
+                _self.loadItems($scope.searchobject);
+            });
+        }else{
+            _self.loadItems();
+        }
+
     };
 
 
-    _self.loadItems=function(){
+    _self.loadItems=function(search){
         if(!_self.paging){
             _self.paging={
                 page:1,
@@ -21,11 +32,19 @@ ngControllers["dogs_controller"]=function($location, $rootScope,$scope, httpSvc,
             }
         }
 
-        dog_service.getDogs(_self.paging)
+        dog_service.getDogs(_self.paging,search)
             .then(function(result){
                 $scope.items=result;
             });
     };
+
+    $scope.search=function(){
+         _self.paging={
+            page:1,
+            size:20,
+        }
+        _self.loadItems($scope.searchobject);
+    }
 
     $scope.nextPage=function(){
         if(!_self.paging){

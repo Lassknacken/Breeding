@@ -6,7 +6,7 @@ ngDirectives['formvalue']= function (formvalue_service) {
             scope: {
                 val:'='
             },
-            templateUrl: 'app/formvalues/formvalue.htm',
+            templateUrl: 'app/formvalues/formvalueSelect.htm',
             // require: 'ngModel',
             link:function($scope, $element, $attr){
                 

@@ -3,8 +3,13 @@ ngServices["dog_service"]=function($rootScope,httpSvc,objectSvc,formvalue_servic
     let _self=this;
 
     //Dogs
-    _self.getDogs=function(paging){
-        return httpSvc.get(httpSvc.apiBaseUrl+"/dogs", _self.createDogs,paging);
+    _self.getDogs=function(paging,searchObject){
+
+        if(!searchObject){
+            return httpSvc.get(httpSvc.apiBaseUrl+"/dogs", _self.createDogs,paging);
+        }else{
+            return httpSvc.post(httpSvc.apiBaseUrl+"/dogsSearch", searchObject,paging,_self.createDogs);
+        }
     };
     _self.getDog=function(id,full){
         if(!id){
@@ -54,7 +59,14 @@ ngServices["dog_service"]=function($rootScope,httpSvc,objectSvc,formvalue_servic
         result.comment=data.Comment;
         result.race="Riesenschnauzer";
 
-        result.formvalue=formvalue_service.createFormvalue(data.Formvalue);
+        if(data.Formvalue!=undefined){
+            result.formvalue=formvalue_service.createFormvalue(data.Formvalue);
+        }
+        // }else{
+        //     formvalue_service.getFormvalue(data.FormvalueId).then(function(result){
+        //         result.formvalue=result;
+        //     });
+        // }
         result.exams=exam_service.createExams(data.Exams);
 
         return result;  	

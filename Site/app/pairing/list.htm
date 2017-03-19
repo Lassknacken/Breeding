@@ -9,11 +9,58 @@
             </div>
         </div>
         <div class="row">
-            <form>
+            <form name="pairing">
                 <div class="col-xs-12 col-md-4">
                     <div class="form-group">
-                        <label for="exampleInputBirthday">Geburtsdatum</label>
-                        <input type="date" class="form-control" id="exampleInputBirthday">
+                        <label >Name</label>
+                        <input type="text" class="form-control" name="name" ng-model="searchobject.name">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label >Nachname</label>
+                        <input type="text" class="form-control" name="lastName" ng-model="searchobject.lastName">
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label >Geburtstag</label>
+                                <input type="date" class="form-control" name="birthFrom" ng-model="searchobject.birthFrom">
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group">
+                                <label >bis</label>
+                                <input type="date" class="form-control" name="birthTo" ng-model="searchobject.birthTo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                        <label>Geschlecht</label>
+                        <select class="form-control" ng-model="searchobject.male">
+                            <option ng-value="true">männlich</option>
+                            <option ng-value="false">weiblich</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <formvalues ng-model="searchobject.formvalues"></formvalues>
+                </div>
+                <div class="col-md-4 col-xs-12">
+                    <div class="form-group">
+                        <label>Zuchtfähig</label>
+                        <select class="form-control" ng-model="searchobject.breedable">
+                            <option ng-value="true">ja</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <button ng-click="search()">suchen</button>
                     </div>
                 </div>
             </form>

@@ -21,6 +21,17 @@
             "property": "chipnumber"
         },
         {
+            "name":"Formwert",
+            "type":"object",
+            "property":"formvalue",
+            "value":"name"
+        },
+        {
+            "name":"Zuchtbuchnummer",
+            "type":"default",
+            "property":"booknumber"
+        },
+        {
             "name": "Details",
             "type": "redirect",
             "target": "dogs/$",

@@ -51,7 +51,8 @@ ngServices['httpSvc']=function($http, $rootScope, $location, objectSvc) {
         });
     }
     
-    _self.post=function(url,data,createMethod){
+    _self.post=function(url,data,paging,createMethod){
+        url= _self.applyPaging(url,paging);
         return $http.post(url,data).then(function(response,error){
             if(!createMethod){
                 return response.data;

@@ -1,4 +1,4 @@
-ngServices["formvalue_service"]=function($rootScope,httpSvc, objectSvc){
+ngServices["formvalue_service"]=function($q, $rootScope,httpSvc, objectSvc){
     let _self=this;
 
     //Formvalue
@@ -6,17 +6,39 @@ ngServices["formvalue_service"]=function($rootScope,httpSvc, objectSvc){
         
         return httpSvc.get(httpSvc.apiBaseUrl+"/formvalues", _self.createFormvalues)
         .then(function(result){
-            return result;
+            _self.formvalues= result;
+            return _self.formvalues;
         });
     };
 
     _self.getFormvalue=function(id){
 
-        for(let key in _self.formvalues){
-            if(_self.formvalues[key].id===id){
-                return _self.formvalues[key];
-            }
+        
+
+
+        if(!_self.formvalues){
+            
+            return _self.getFormvaules.then(function(result){
+                
+                for(let key in _self.formvalues)
+                {
+                    if(_self.formvalues[key].id===id)
+                    {
+                        return _self.formvalues[key];
+                    }
+                }
+            });
+
+        }else{
+            return $q(function(){
+                for(let key in _self.formvalues){
+                    if(_self.formvalues[key].id===id){
+                        return _self.formvalues[key];
+                    }
+                }
+            });
         }
+        
     }
 
     _self.createFormvalues=function(data){
