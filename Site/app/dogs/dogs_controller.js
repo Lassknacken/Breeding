@@ -1,4 +1,4 @@
-ngControllers["dogs_controller"]=function($location, $rootScope, httpSvc, dog_service,authService){
+ngControllers["dogs_controller"]=function($location, $rootScope,$scope, httpSvc, dog_service,authService){
     let _self=this;
 
 
@@ -23,11 +23,11 @@ ngControllers["dogs_controller"]=function($location, $rootScope, httpSvc, dog_se
 
         dog_service.getDogs(_self.paging)
             .then(function(result){
-                _self.items=result;
+                $scope.items=result;
             });
     };
 
-    _self.nextPage=function(){
+    $scope.nextPage=function(){
         if(!_self.paging){
             _self.paging={};
         }
@@ -44,7 +44,7 @@ ngControllers["dogs_controller"]=function($location, $rootScope, httpSvc, dog_se
         _self.loadItems();
     };
 
-    _self.prevPage=function(){
+    $scope.prevPage=function(){
         if(!_self.paging){
             _self.paging={};
         }

@@ -34,13 +34,10 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="table-responsive">
-                        <mytable ng-model="listController.items" configname="'dogs'"></mytable>
+                        <mytable ng-model="items" configname="'dogs'"></mytable>
                     </div>
                 </div>
-                <div class="col-xs-12">
-                    <button class="btn btn-default" ng-click="listController.prevPage()">prev</button>
-                    <button class="btn btn-default" ng-click="listController.nextPage()">next</button>
-                </div>
+                <mypaging></mypaging>
             </div>
             <div class="row">
                 <div class="col-xs-12 text-right">
