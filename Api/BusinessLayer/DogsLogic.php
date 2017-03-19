@@ -45,5 +45,15 @@
 
             return $result;
         }
+
+        public function searchDogs($search,$page,$size){
+            if(!isset($search)){
+                return null;
+            }
+
+            return $this->dalDogs->search($search,$page,$size);
+
+            return null;
+        }
     }
 ?>

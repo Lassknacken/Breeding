@@ -31,7 +31,7 @@
             return $this->formvaluesLogic->getId($id);
         }
 
-        public function post($formvalue){
+        public function post($formvalue,$page=null,$size=null){
             // return $this->formvaluesLogic->createFormvalue($formvalue);
         }
 

@@ -44,7 +44,7 @@
             return $this->logic->getId($id);
         }
 
-        public function post($user){
+        public function post($user,$page=null,$size=null){
             // return $this->logic->createFormvalue($formvalue);
         }
 

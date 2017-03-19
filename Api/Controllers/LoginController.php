@@ -24,7 +24,7 @@
             return $user;
         }
 
-        public function post($login){
+        public function post($login,$page=null,$size=null){
 
             $authorised =$this->authLogic->authenticate($login["username"],$login["password"]);
 

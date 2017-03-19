@@ -7,6 +7,6 @@
         
         public function put($id,$item);
 
-        public function post($item);
+        public function post($item,$page,$size);
     }
 ?>

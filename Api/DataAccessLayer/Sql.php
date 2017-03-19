@@ -24,6 +24,52 @@
             return $this->runQuery($sql);
         }
 
+        //comparer
+        public function sqlLike($sql, $name,$value){
+
+            $sql=$this->sqlCombine($sql);
+            return $sql."{$name} like '%{$value}%'";
+        }
+
+        public function sqlIs($sql, $name,$value){
+            $sql=$this->sqlCombine($sql);
+            return $sql."{$name} = {$value}";
+        }
+
+        public function sqlAfter($sql,$name,$value){
+            if(!isset($value) || !isset($value->date)){
+                return $sql;
+            }
+            $sql=$this->sqlCombine($sql);
+
+
+            return $sql."{$name} >= date('{$value->date}')";
+        }
+
+        public function sqlBefore($sql,$name,$value){
+            if(!isset($value) || !isset($value->date)){
+                return $sql;
+            }
+
+            $sql=$this->sqlCombine($sql);
+            return $sql."{$name} <= date('{$value->date}')";
+        }
+
+        public function sqlContains($sql,$name,$values){
+            if(!isset($values) || !is_array($values) || array_count_values($values)==0){
+                return $sql;
+            }
+            
+            $sql=$this->sqlCombine($sql);
+
+            $value=implode(",",$values);
+            if(is_numeric(($values[0]))){
+                return $sql."{$name} in({$value})";
+            }
+
+            return $sql;
+        }
+
         //=====
         private function open()
         {
@@ -84,5 +130,11 @@
             }
         }
 
+        private function sqlCombine($sql){
+            if($sql!=""){
+                return $sql.=" AND ";
+            }
+            return "";
+        }
     }
 ?>

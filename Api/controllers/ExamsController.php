@@ -33,7 +33,7 @@
             return $this->examsLogic->getId($id);
         }
 
-        public function post($exam){
+        public function post($exam,$page=null,$size=null){
             return $this->examsLogic->createDog($exam);
         }
 

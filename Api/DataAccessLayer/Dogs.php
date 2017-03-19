@@ -38,6 +38,20 @@ require_once("./Models/Dog.php");
             return $result;
         }
 
+        public function search($search,$page,$size){
+            if(!isset($search)){
+                return null;
+            }
+
+            $dogs=$this->searchModels($search,$page,$size);
+            
+            if(!is_array($dogs) || count($dogs)==0){
+                    return null;
+            }
+
+            $result=$this->transformAll($dogs);
+            return $result;
+        }
 
         public function getByKennel($id){
 
@@ -97,6 +111,21 @@ require_once("./Models/Dog.php");
             return $dogs;
         }
 
+        private function searchModels($search,$page,$size){
+
+            $query="select * from v_dogs_kennels";
+
+            $query.=$this->isSimilar($search);
+
+            $dogs= $this->sql->queryPaged($query,$page,$size);
+
+            if($dogs==null || sizeof($dogs)==0){
+                return null;
+            }
+
+            return $dogs;
+        }
+
         private function transformAll($dogs){
             $result=array();
             foreach($dogs as $dog){
@@ -119,6 +148,54 @@ require_once("./Models/Dog.php");
             $result->LastName=$dbItem[8];
 
             return $result;
+        }
+
+        private function isSimilar($search){
+            $sql="";
+
+            if(isset($search->Name)){
+                $sql=$this->sql->sqlLike($sql,"dog_name",$search->Name);
+            }
+
+            if(isset($search->LastName)){
+                $sql=$this->sql->sqlLike($sql,"kennel_name",$search->LastName);
+            }
+
+            if(isset($search->Male)){
+                if($search->Male==true){
+                    $sql=$this->sql->sqlIs($sql,"dog_male",1);
+                }else{
+                    $sql=$this->sql->sqlIs($sql,"dog_male",0);
+                }
+
+            }
+
+            if(isset($search->Breedable)){
+                if($search->Breedable==true){
+                    $sql=$this->sql->sqlIs($sql,"dog_breedable",1);
+                }else{
+                    $sql=$this->sql->sqlIs($sql,"dog_breedable",0);
+                }
+
+            }
+
+            if(isset($search->BirthFrom)){
+                $sql=$this->sql->sqlAfter($sql,"dog_male",$search->BirthFrom);
+            }
+
+            if(isset($search->BirthTo)){
+                $sql=$this->sql->sqlBefore($sql,"dog_male",$search->BirthTo);
+            }
+
+            if(isset($search->Formvalues) && is_array($search->Formvalues) && array_count_values($search->Formvalues)>0){
+                $sql=$this->sql->sqlContains($sql,"dog_formvalue_id",$search->Formvalues);
+            }
+
+            if($sql!=""){
+                $sql=" WHERE {$sql}";
+            }
+
+            return $sql;
         }
 
     }

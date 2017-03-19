@@ -34,7 +34,7 @@
             return $this->logic->getId($id);
         }
 
-        public function post($kennel){
+        public function post($kennel,$page=null,$size=null){
             // return $this->logic->createFormvalue($formvalue);
         }
 

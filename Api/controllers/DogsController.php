@@ -36,7 +36,7 @@
             return $this->dogsLogic->getId($id);
         }
 
-        public function post($dog){
+        public function post($dog,$page=null,$size=null){
             return $this->dogsLogic->createDog($dog);
         }
 

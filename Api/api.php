@@ -72,15 +72,32 @@ switch ($method) {
         try{
             $post=json_decode(file_get_contents('php://input'), true);
             
-            $result;
+            $page=0;
+            $size=0;
 
+            if(isset($_GET["page"]))
+            {
+                $page=intval($_GET["page"]);
+            }
+
+            if(isset($_GET["size"]))
+            {
+                $size=intval($_GET["size"]);
+            }
+
+
+            $result;
             if(isset($post)){
-                $result = $controller->post($post);
+                $result = $controller->post($post,$page,$size);
             }else{
 
             }           
 
-            echo json_encode($result);
+            if(!isset($result)){
+                return;
+            }
+
+            echo json_encode($result,JSON_UNESCAPED_UNICODE);
         }
         catch (AuthException $ex){
             header("HTTP/1.1 401 Unauthorized");
