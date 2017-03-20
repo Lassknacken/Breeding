@@ -110,6 +110,26 @@ switch ($method) {
 
         break;
     }
+    case 'PUT':{
+        $put=json_decode(file_get_contents('php://input'), true);
+
+        $id;
+        if(isset($_GET["id"]))
+        {
+            $id=intval($_GET["id"]);
+        }
+
+        $result;
+        if(isset($put)){
+            $result = $controller->put($id,$put);
+        }     
+
+        if(!isset($result)){
+            return;
+        }
+
+        echo json_encode($result,JSON_UNESCAPED_UNICODE);
+    }
 }
 
 ?>

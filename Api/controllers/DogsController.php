@@ -2,6 +2,7 @@
     require("IController.php");
     require_once('./BusinessLayer/DogsLogic.php');
     require_once('./BusinessLayer/AuthLogic.php');
+    require_once('./Models/Dog.php');
 
     class controller implements iController{
 
@@ -41,7 +42,12 @@
         }
 
         public function put($id,$dog){
-            return $this->dogsLogic->updateDog($dog);
+
+            if(isset($dog)){
+                $dog=new dog($dog);
+            }
+
+            return $this->dogsLogic->updateDog($id,$dog);
         }
 
     }

@@ -27,12 +27,12 @@
         //comparer
         public function sqlLike($sql, $name,$value){
 
-            $sql=$this->sqlCombine($sql);
+            $sql=$this->sqlCombine($sql,"AND");
             return $sql."{$name} like '%{$value}%'";
         }
 
         public function sqlIs($sql, $name,$value){
-            $sql=$this->sqlCombine($sql);
+            $sql=$this->sqlCombine($sql,"AND");
             return $sql."{$name} = {$value}";
         }
 
@@ -40,7 +40,7 @@
             if(!isset($value) || !isset($value->date)){
                 return $sql;
             }
-            $sql=$this->sqlCombine($sql);
+            $sql=$this->sqlCombine($sql,"AND");
 
 
             return $sql."{$name} >= date('{$value->date}')";
@@ -51,22 +51,38 @@
                 return $sql;
             }
 
-            $sql=$this->sqlCombine($sql);
+            $sql=$this->sqlCombine($sql,"AND");
             return $sql."{$name} <= date('{$value->date}')";
         }
 
         public function sqlContains($sql,$name,$values){
-            if(!isset($values) || !is_array($values) || array_count_values($values)==0){
+            if(!isset($values) || !is_array($values) || sizeof($values)==0){
                 return $sql;
             }
             
-            $sql=$this->sqlCombine($sql);
+            $sql=$this->sqlCombine($sql,"AND");
 
             $value=implode(",",$values);
             if(is_numeric(($values[0]))){
                 return $sql."{$name} in({$value})";
             }
 
+            return $sql;
+        }
+
+
+        public function sqlSet($sql, $name,$value){
+            if(!isset($name)|| !isset($value)){
+                return $sql;
+            }
+
+            $sql=$this->sqlCombine($sql,",");
+            
+            if(is_numeric($value)){
+                return $sql." {$name}={$value}";
+            }else if(is_string($value)){
+                return $sql." {$name}='{$value}'";
+            }
             return $sql;
         }
 
@@ -130,9 +146,9 @@
             }
         }
 
-        private function sqlCombine($sql){
+        private function sqlCombine($sql,$separator){
             if($sql!=""){
-                return $sql.=" AND ";
+                return $sql.=" {$separator} ";
             }
             return "";
         }

@@ -67,12 +67,49 @@ require_once("./Models/Dog.php");
 
         }
 
-        public function update($id,$dog)
+        public function update($id,$dog,$update)
         {
-            
+            $changes=[];
+
+            if($dog->Name != $update->Name){
+                $changes["name"]=$update->Name;
+            }
+
+            // if($dog->Birth != $update->Birth){
+            //     $changes["birth"]=$update->Birth;
+            // }
+
+            if($dog->Male != $update->Male){
+                $changes["Male"]=$update->Male;
+            }
+
+            if($dog->Chipnumber != $update->Chipnumber){
+                $changes["Chipnumber"]=$update->Chipnumber;
+            }
+
+            if($dog->Booknumber != $update->Booknumber){
+                $changes["Booknumber"]=$update->Booknumber;
+            }
+
+            if($dog->Breedable != $update->Breedable){
+                $changes["Breedable"]=$update->Breedable;
+            }            
+
+            if($dog->Formvalue->Id != $update->Formvalue->Id){
+                $changes["FormvalueId"]=$update->Formvalue->Id;
+            }
+
+            if(sizeof($changes)==0){
+                return $dog;
+            }
+
+            $model=$this->updateModel($id,$changes);
+
+            $result=$this->transform($model);
+            return $result;
         }
 
-        //=====
+        //===== privates
 
         private function getModels($page,$size)
         {
@@ -109,6 +146,24 @@ require_once("./Models/Dog.php");
             }
 
             return $dogs;
+        }
+
+        private function updateModel($id,$changes){
+            if(sizeof($changes)==0){
+                return $this->getModel($id);
+            }
+
+            $sql="";
+            foreach($changes as $key => $value){
+                $sql= $this->sql->sqlSet($sql,$key,$value);
+            }
+
+            $sql="update dogs set {$sql} where id={$id};";
+
+            $this->sql->query($sql);
+
+            $result=$this->getModel($id);
+            return $result;
         }
 
         private function searchModels($search,$page,$size){
@@ -187,7 +242,7 @@ require_once("./Models/Dog.php");
                 $sql=$this->sql->sqlBefore($sql,"dog_male",$search->BirthTo);
             }
 
-            if(isset($search->Formvalues) && is_array($search->Formvalues) && array_count_values($search->Formvalues)>0){
+            if(isset($search->Formvalues) && is_array($search->Formvalues) && sizeof($search->Formvalues)>0){
                 $sql=$this->sql->sqlContains($sql,"dog_formvalue_id",$search->Formvalues);
             }
 

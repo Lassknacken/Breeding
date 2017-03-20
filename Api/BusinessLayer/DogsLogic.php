@@ -55,5 +55,11 @@
 
             return null;
         }
+
+        public function updateDog($id,$update){
+            $dog=$this->getFullId($id);
+            
+            $this->dalDogs->update($id,$dog,$update);
+        }
     }
 ?>
