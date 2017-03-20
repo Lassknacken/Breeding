@@ -34,6 +34,7 @@ ngServices["kennelService"]=function(objectSvc,httpSvc, dog_service){
 
         result.id=data.Id;
         result.name=data.Name;
+        result.active=data.Active;
 
         if(data.Dogs){
             result.dogs=dog_service.createDogs(data.Dogs);

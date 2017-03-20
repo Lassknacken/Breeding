@@ -191,7 +191,11 @@
                     zurück
                 </a>
             </div>
-            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-4">
+                <button class="btn btn-primary right" ng-click="dogCtrl.saveDog()">
+                    <span class="fa fa-save"></span> speichern
+                </button>
+            </div>
             <div class="col-xs-12 col-md-4 text-right">
                  <myredirect ng-model="dogCtrl.dog.id" target="'dogs/$/pairing'" title="'verpaaren'" tooltip="'diesen Hund verpaaren'">
                  </myredirect>

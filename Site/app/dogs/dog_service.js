@@ -62,11 +62,6 @@ ngServices["dog_service"]=function($rootScope,httpSvc,objectSvc,formvalue_servic
         if(data.Formvalue!=undefined){
             result.formvalue=formvalue_service.createFormvalue(data.Formvalue);
         }
-        // }else{
-        //     formvalue_service.getFormvalue(data.FormvalueId).then(function(result){
-        //         result.formvalue=result;
-        //     });
-        // }
         result.exams=exam_service.createExams(data.Exams);
 
         return result;  	

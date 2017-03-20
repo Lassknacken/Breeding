@@ -1,7 +1,6 @@
 <div>
     <div ng-if="template.type==='date'">
         <span>{{val[template.property].toLocaleDateString()}}</span>
-        
     </div>
     <div ng-if="template.type==='default'">
         <span>{{val[template.property].toString()}} {{template.suffix}}</span>

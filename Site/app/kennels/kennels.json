@@ -11,7 +11,12 @@
             "property":"name"
         },
         {
-            "name":"Zwinger",
+            "name":"Aktiv",
+            "type":"default",
+            "property":"active"
+        },
+        {
+            "name":"Hunde",
             "type":"redirect",
             "target":"kennels/$",
             "property":"id"

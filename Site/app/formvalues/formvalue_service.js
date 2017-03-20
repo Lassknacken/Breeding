@@ -51,7 +51,7 @@ ngServices["formvalue_service"]=function($q, $rootScope,httpSvc, objectSvc){
 
 
     _self.createFormvalue=function(data){
-        if(!data){
+        if(!data || !data.Id){
             return undefined;
         }
 
