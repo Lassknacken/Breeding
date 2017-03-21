@@ -17,6 +17,10 @@ require_once ("Formvalue.php");
             $this->Breedable=ModelHelper::jsonGet($json,"breedable");
 
             $this->Formvalue=new formvalue(ModelHelper::jsonGet($json,"formvalue"));
+            $this->Exams=[];
+            foreach(ModelHelper::jsonGetArray($json,"exams") as $item){
+                array_push($this->Exams,new exam($item));
+            }
         }
 
 

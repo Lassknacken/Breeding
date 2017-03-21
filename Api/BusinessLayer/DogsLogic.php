@@ -60,6 +60,8 @@
             $dog=$this->getFullId($id);
             
             $this->dalDogs->update($id,$dog,$update);
+
+            $this->blExams->updateDog($id,$update->Exams);
         }
     }
 ?>

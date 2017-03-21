@@ -52,6 +52,12 @@ require_once("./Models/Exam.php");
             
         }
 
+        public function updateDog($id,$update){
+            
+            $this->updateModel($id,$update);
+            $exams=$this->getByDog($id);
+        }
+
         //=====
 
         private function getModels($page,$size){
@@ -84,6 +90,19 @@ require_once("./Models/Exam.php");
             ");
             
             return $exams;
+        }
+
+        private function updateModel($id,$update){
+
+            $sql="Delete from dogs_exams where dog_id={$id};";
+            $this->sql->query($sql);
+            foreach($update as $new){
+                $sql="Insert into dogs_exams (dog_id,exam_id)values({$id},{$new->Id});";
+                $this->sql->query($sql);
+            }
+            
+            // $this->sql->query($sql);
+            return;
         }
 
         private function transformAll($exams){

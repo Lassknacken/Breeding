@@ -10,11 +10,11 @@
             $this->dal=new exams();
         }
 
-        public function get()
+        public function get($page,$size)
         {
-            $dogs=$this->dal->get();
+            $exams=$this->dal->get($page,$size);
 
-            return $dogs;
+            return $exams;
         }
 
         public function getId($id){
@@ -27,6 +27,12 @@
             $result = $this->dal->getByDog($id);
 
             return $result;
+        }
+
+        public function updateDog($id,$update){
+            $exams= $this->getByDog($id);
+            
+            $this->dal->updateDog($id,$update);
         }
     }
 ?>

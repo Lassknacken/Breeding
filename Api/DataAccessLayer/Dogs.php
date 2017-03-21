@@ -105,7 +105,7 @@ require_once("./Models/Dog.php");
 
             $model=$this->updateModel($id,$changes);
 
-            $result=$this->transform($model);
+            $result=$this->getId($id);
             return $result;
         }
 
@@ -161,9 +161,7 @@ require_once("./Models/Dog.php");
             $sql="update dogs set {$sql} where id={$id};";
 
             $this->sql->query($sql);
-
-            $result=$this->getModel($id);
-            return $result;
+            return;
         }
 
         private function searchModels($search,$page,$size){
