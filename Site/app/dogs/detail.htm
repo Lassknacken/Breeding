@@ -63,7 +63,7 @@
             <div class="col-xs-12 col-md-4"></div>
         </div>
 
-         <div class="row">
+         <!--<div class="row">
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-4">
                 <formvalue val="dogCtrl.dog.formvalue">
@@ -74,7 +74,7 @@
                     <exam ng-repeat="exam in dogCtrl.dog.exams" val="exam"></exam>
                 </div>
             </div>
-        </div>
+        </div>-->
 
          <div class="row">
             <div class="col-xs-12 col-md-4"></div>
@@ -90,6 +90,17 @@
             <div class="col-xs-12 col-md-4"></div>
         </div>
         
+        <div class="row">
+            <div class="col-xs-12 col-md-4"></div>
+            <div class="col-xs-12 col-md-4">
+                <h4>Prüfungen</h4>
+                <exams ng-model="dogCtrl.dog.exams" addable="1"></exams>
+            </div>
+            <div class="col-xs-12 col-md-4">
+                <exam ng-model="dogCtrl.dog.exams"></exam>
+            </div>
+        </div>
+
         <div class="row">
             <div class="col-xs-12 col-md-4"></div>
             <div class="col-xs-12 col-md-8">

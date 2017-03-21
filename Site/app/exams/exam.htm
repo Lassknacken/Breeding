@@ -1,5 +1,6 @@
 <div class="form-group">
-    <label for="exampleInputFile">Prüfung</label>
-    <select class="form-control" ng-model="exam" ng-options="value.name for value in exams" ng-change="selected()">
+    <label >Prüfung</label>
+    <select class="form-control" ng-model="val" ng-options="value.name for value in exams" ng-change="selected()">
     </select>
+    <button ng-if="model" ng-click="model.push(val)">+</button>
 </div>
